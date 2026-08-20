@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 200.0
+const speed = 250.0
 const turn_speed = 4.0
 
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")

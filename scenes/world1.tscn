@@ -2,11 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://plhldwn75b82" path="res://scenes/player.tscn" id="1_6kdnw"]
 [ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="2_rp871"]
+[ext_resource type="Script" uid="uid://d3cr2jd2460us" path="res://scripts/enemy_spawner.gd" id="3_scryw"]
 
 [node name="World" type="Node2D" unique_id=1181621573]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1980016627]
+offset_right = 9000.0
+offset_bottom = 9000.0
+color = Color(0.17507088, 0.24465424, 0.5806016, 1)
+metadata/_edit_lock_ = true
+
 [node name="Player" parent="." unique_id=2110241415 instance=ExtResource("1_6kdnw")]
-position = Vector2(579, 349)
+position = Vector2(4500, 4500)
 
 [node name="Enemy" parent="." unique_id=992288199 instance=ExtResource("2_rp871")]
-position = Vector2(1278, 746)
+position = Vector2(7053, 3934)
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=544766623]
+script = ExtResource("3_scryw")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=903562180]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
