@@ -14,3 +14,17 @@ texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=271599360]
 shape = SubResource("RectangleShape2D_kb7tl")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1929079162]
+autostart = true
+
+[node name="LeftCannon" type="Marker2D" parent="." unique_id=2010248053]
+position = Vector2(0, -64)
+
+[node name="RightCannon" type="Marker2D" parent="." unique_id=1407078903]
+position = Vector2(0, 64)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1144183000]
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
