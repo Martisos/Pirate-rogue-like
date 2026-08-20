@@ -28,6 +28,10 @@ position = Vector2(0, 28)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1144183000]
 zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = 0
+limit_right = 9000
+limit_bottom = 9000
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1713718442]
 offset_left = -64.0

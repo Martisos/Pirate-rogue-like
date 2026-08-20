@@ -19,7 +19,10 @@ shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="Cannons" type="Node2D" parent="." unique_id=531455372]
 
-[node name="CannonPoint" type="Marker2D" parent="Cannons" unique_id=1963938422]
+[node name="Lcanon" type="Marker2D" parent="Cannons" unique_id=1963938422]
 position = Vector2(0, -64)
+
+[node name="Rcanon" type="Marker2D" parent="Cannons" unique_id=389776854]
+position = Vector2(0, 64)
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
