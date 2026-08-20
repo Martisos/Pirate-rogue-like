@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dwqjqohfahwf7"]
+
+[ext_resource type="Texture2D" uid="uid://clteg3oeoqg7y" path="res://icon.svg" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dvjdgvinm80f4" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
+size = Vector2(128, 128)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=992288199]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=403356201]
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=737062971]
+shape = SubResource("RectangleShape2D_kb7tl")
+
+[node name="ShootCooldown" type="Timer" parent="." unique_id=618897603]
+
+[node name="CannonPoint" type="Marker2D" parent="." unique_id=1963938422]
+position = Vector2(64, 0)
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

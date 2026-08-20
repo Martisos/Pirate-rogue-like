@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pirateGame"
-run/main_scene="uid://plhldwn75b82"
+run/main_scene="uid://bvk6ttt2rle1k"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,11 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+player=""
+enemies=""
 
 [input]
 
