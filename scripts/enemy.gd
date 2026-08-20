@@ -10,8 +10,8 @@ var health: int
 var player = null
 var can_shoot: bool = true
 
-@onready var cannon_point: Marker2D = $CannonPoint
 @onready var shoot_cooldown: Timer = $ShootCooldown
+@onready var cannons_node: Node2D = $Cannons
 
 
 func _ready() -> void:
@@ -39,15 +39,18 @@ func _physics_process(delta: float) -> void:
 			shoot()
 
 func shoot() -> void:
-	if cannonball_scene != null and cannon_point != null:
+	if cannonball_scene != null and cannons_node != null:
 		can_shoot = false
-		var ball = cannonball_scene.instantiate()
-		get_tree().root.add_child(ball)
 		
-		ball.global_position = cannon_point.global_position
-		ball.rotation = rotation
-		
-		shoot_cooldown.start(attack_cooldown)
+		for cannon in cannons_node.get_children():
+			var ball = cannonball_scene.instantiate()
+			ball.shooter = self
+			get_tree().root.add_child(ball)
+			
+			ball.global_position = cannon.global_position
+			ball.rotation = rotation
+			
+			shoot_cooldown.start(attack_cooldown)
 
 func take_damage(amount: int) -> void:
 	health -= amount

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 200.0
-const turn_speed = 3.0
+const turn_speed = 4.0
 
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
 
@@ -19,7 +19,11 @@ func _input(event) -> void:
 		target = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
-	if position.distance_to(target) > 10:
+	
+	if position.distance_to(target) < 20:
+		velocity = Vector2.ZERO
+	
+	if position.distance_to(target) > 20:
 		var direction_to_target = global_position.direction_to(target)
 		var target_angle = direction_to_target.angle()
 		
@@ -35,11 +39,13 @@ func _physics_process(delta: float) -> void:
 func _on_shoot_timer_timeout() -> void:
 	if cannonball_scene != null:
 		var ball_left = cannonball_scene.instantiate()
+		ball_left.shooter = self
 		get_tree().root.add_child(ball_left)
 		ball_left.global_position = left_cannon.global_position
 		ball_left.rotation = rotation - (PI / 2.0) #why radians are in godot brooooo
 		
 		var ball_right = cannonball_scene.instantiate()
+		ball_right.shooter = self
 		get_tree().root.add_child(ball_right)
 		ball_right.global_position = right_cannon.global_position
 		ball_right.rotation = rotation + (PI / 2.0) #why radians are still in godot brooooo
