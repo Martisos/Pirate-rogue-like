@@ -13,7 +13,7 @@ var turn_speed = 4.0
 var max_health: int = 3
 var health: int = 3
 
-var shoot_cooldown: float = 1.0
+var shoot_cooldown: float = 0.5
 var bonus_damage: int = 0
 
 var level: int = 1
@@ -26,6 +26,7 @@ var target: Vector2
 func _ready() -> void:
 	target = global_position
 	shoot_timer.wait_time = shoot_cooldown
+	shoot_timer.start()
 
 func _input(event) -> void:
 	if event.is_action_pressed("click"):
