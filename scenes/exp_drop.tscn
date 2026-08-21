@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c2cc2gctbtjcr"]
+
+[ext_resource type="Script" uid="uid://cpqqk7nthjrk0" path="res://scripts/exp_drop.gd" id="1_cj8mi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
+radius = 20.0
+
+[node name="ExpDrop" type="Area2D" unique_id=823489768 groups=["exp"]]
+script = ExtResource("1_cj8mi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1283057545]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.9843137, 0.9490196, 0.11764706, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1102673339]
+shape = SubResource("CircleShape2D_kb7tl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

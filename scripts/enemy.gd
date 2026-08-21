@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var attack_cooldown: float = 2.0
 @export var turn_speed: float = 2.0
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
+@export var exp_drop : PackedScene = preload("uid://c2cc2gctbtjcr")
+
 
 var health: int
 var player = null
@@ -92,6 +94,10 @@ func take_damage(amount: int) -> void:
 
 func die():
 	#fancy something after enemy dies
+	if exp_drop != null:
+		var drop = exp_drop.instantiate()
+		get_tree().current_scene.call_deferred("add_child", drop)
+		drop.global_position = global_position
 	queue_free()
 
 func _on_shoot_cooldown_timeout() -> void:

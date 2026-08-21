@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://bn5eia6evv7c2"]
+
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_x7iwm"]
+
+[resource]
+script = ExtResource("1_x7iwm")
+description = "+25 to speed of your ship"
+upgrade_type = "speed"
+value = 25.0
+metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

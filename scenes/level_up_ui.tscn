@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ljv7abqgtnrs"]
+
+[ext_resource type="Script" uid="uid://dxuv7co80882r" path="res://scripts/level_up_ui.gd" id="1_0amag"]
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="2_al3h0"]
+[ext_resource type="Resource" uid="uid://bn5eia6evv7c2" path="res://upgrades/speed_add_25.tres" id="3_4xqxv"]
+[ext_resource type="Resource" uid="uid://f84tatvkv1fh" path="res://upgrades/speed_add_50.tres" id="4_7l1e4"]
+
+[node name="LevelUpUI" type="CanvasLayer" unique_id=1221979977]
+process_mode = 3
+script = ExtResource("1_0amag")
+all_avaiable_upgrades = Array[ExtResource("2_al3h0")]([ExtResource("3_4xqxv"), ExtResource("4_7l1e4")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1112322953]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="Button" type="Button" parent="." unique_id=1703167880]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -15.5
+offset_right = 55.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "continue test"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

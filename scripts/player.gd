@@ -1,18 +1,31 @@
 extends CharacterBody2D
 
-const speed = 250.0
-const turn_speed = 4.0
+var speed = 250.0
+var turn_speed = 4.0
 
-@export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
+@export var cannonball_scene: PackedScene = preload("uid://c3c8elea3mokb")
+@onready var level_up_ui: CanvasLayer = $"../LevelUpUI"
+@onready var shoot_timer: Timer = $ShootTimer
 
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
 
+var max_health: int = 3
+var health: int = 3
+
+var shoot_cooldown: float = 1.0
+var bonus_damage: int = 0
+
+var level: int = 1
+var current_exp: float = 0.0
+var exp_to_new_level: float = 5.0
 
 var target: Vector2
 
+
 func _ready() -> void:
 	target = global_position
+	shoot_timer.wait_time = shoot_cooldown
 
 func _input(event) -> void:
 	if event.is_action_pressed("click"):
@@ -37,15 +50,34 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
+	
+	shoot_timer.wait_time = shoot_cooldown
+	
 	if cannonball_scene != null:
 		var ball_left = cannonball_scene.instantiate()
 		ball_left.shooter = self
 		get_tree().root.add_child(ball_left)
 		ball_left.global_position = left_cannon.global_position
 		ball_left.rotation = rotation - (PI / 2.0) #why radians are in godot brooooo
+		ball_left.damage += bonus_damage
 		
 		var ball_right = cannonball_scene.instantiate()
 		ball_right.shooter = self
 		get_tree().root.add_child(ball_right)
 		ball_right.global_position = right_cannon.global_position
 		ball_right.rotation = rotation + (PI / 2.0) #why radians are still in godot brooooo
+		ball_right.damage += bonus_damage
+
+func gain_exp(amount: int):
+	current_exp += amount
+	if current_exp >= exp_to_new_level:
+		level_up()
+
+
+func level_up():
+	level += 1
+	current_exp -= exp_to_new_level
+	exp_to_new_level = int(exp_to_new_level * 1.4)
+	print("level up: ", level)
+	if level_up_ui != null:
+		level_up_ui.show_upgrades()

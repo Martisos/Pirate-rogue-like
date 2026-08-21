@@ -18,7 +18,6 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1929079162]
-autostart = true
 
 [node name="LeftCannon" type="Marker2D" parent="." unique_id=2010248053]
 position = Vector2(0, -31)
