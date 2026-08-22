@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://b5lufmh4gmocf"]
+
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_v23u5"]
+
+[resource]
+script = ExtResource("1_v23u5")
+title = "Heal I"
+description = "Heal 1 HP"
+upgrade_type = "heal"
+metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

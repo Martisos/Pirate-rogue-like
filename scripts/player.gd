@@ -3,9 +3,17 @@ extends CharacterBody2D
 var speed = 250.0
 var turn_speed = 4.0
 
+
 @export var cannonball_scene: PackedScene = preload("uid://c3c8elea3mokb")
 @onready var level_up_ui: CanvasLayer = $"../LevelUpUI"
 @onready var shoot_timer: Timer = $ShootTimer
+
+@onready var label_health: Label = $Stats/Health
+@onready var label_speed: Label = $Stats/Speed
+@onready var label_damage: Label = $Stats/Damage
+@onready var label_attack_speed: Label = $Stats/AttackSpeed
+@onready var label_next_level: Label = $Stats/NextLevel
+
 
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
@@ -13,7 +21,7 @@ var turn_speed = 4.0
 var max_health: int = 3
 var health: int = 3
 
-var shoot_cooldown: float = 0.5
+var shoot_cooldown: float = 1.0
 var bonus_damage: int = 0
 
 var level: int = 1
@@ -48,6 +56,15 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+	
+	_update_stats_display()
+
+func _update_stats_display() -> void:
+	label_health.text = "HP: " + str(health) + "/" + str(max_health)
+	label_speed.text = "Speed: " + str(speed)
+	label_damage.text = "Damage: " + str(1 + bonus_damage)
+	label_attack_speed.text = "Attack Speed: " + str(shoot_cooldown)
+	label_next_level.text = "To next level: " + str(exp_to_new_level - current_exp)
 
 
 func _on_shoot_timer_timeout() -> void:

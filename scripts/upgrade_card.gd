@@ -8,7 +8,7 @@ enum rarities {common, rare, epic, legendary}
 @export var rarity: rarities = rarities.common
 @export var icon: Texture2D 
 
-@export_enum("speed", "damage", "max_health", "heal", "attack_speed", "add_cannon") var upgrade_type: String = "health"
+@export_enum("speed", "damage", "max_health", "heal", "attack_speed", "add_cannon") var upgrade_type: String = "speed"
 
 @export var value: float = 1.0
 
@@ -19,7 +19,7 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 			print("new speed: ", player.speed)
 		"damage":
 			player.bonus_damage += int(value)
-			print("new damage: ")
+			print("new damage: ", 1 + player.bonus_damage)
 		"max_health":
 			player.max_health += int(value)
 			print("new max health:", player.max_health)

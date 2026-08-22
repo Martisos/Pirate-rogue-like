@@ -5,6 +5,18 @@
 [ext_resource type="Script" uid="uid://d3cr2jd2460us" path="res://scripts/enemy_spawner.gd" id="3_scryw"]
 [ext_resource type="PackedScene" uid="uid://bp1whw84ufvpv" path="res://scenes/enemy_small.tscn" id="4_6u51x"]
 [ext_resource type="PackedScene" uid="uid://ljv7abqgtnrs" path="res://scenes/level_up_ui.tscn" id="5_x368c"]
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="6_ulrur"]
+[ext_resource type="Resource" uid="uid://bn5eia6evv7c2" path="res://upgrades/speed_add_25.tres" id="7_mjk3i"]
+[ext_resource type="Resource" uid="uid://f84tatvkv1fh" path="res://upgrades/speed_add_50.tres" id="8_2ifxk"]
+[ext_resource type="Resource" uid="uid://cj0vpomtn23s0" path="res://upgrades/speed_add_75.tres" id="9_r56qy"]
+[ext_resource type="Resource" uid="uid://bd04c12q8fsf5" path="res://upgrades/speed_add_100.tres" id="10_eo7bd"]
+[ext_resource type="Resource" uid="uid://cod3w18hjwq16" path="res://upgrades/damage_add_1.tres" id="11_c2h5s"]
+[ext_resource type="Resource" uid="uid://b5lufmh4gmocf" path="res://upgrades/heal_1.tres" id="12_yeu16"]
+[ext_resource type="Resource" uid="uid://ccwcrmbe2xu4v" path="res://upgrades/heal_2.tres" id="13_2jj1a"]
+[ext_resource type="Resource" uid="uid://np08hlo7ndbg" path="res://upgrades/max_health_add_1.tres" id="14_ec51p"]
+[ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_3.tres" id="15_jsfht"]
+[ext_resource type="Resource" uid="uid://brenop1adk854" path="res://upgrades/attack_speed_1.25x.tres" id="16_2ifxk"]
+[ext_resource type="Resource" uid="uid://c240sjcox8ykd" path="res://upgrades/attack_speed_2x.tres" id="17_r56qy"]
 
 [node name="World" type="Node2D" unique_id=1181621573]
 
@@ -29,5 +41,6 @@ wait_time = 3.0
 autostart = true
 
 [node name="LevelUpUI" parent="." unique_id=1221979977 instance=ExtResource("5_x368c")]
+all_avaiable_upgrades = Array[ExtResource("6_ulrur")]([ExtResource("7_mjk3i"), ExtResource("8_2ifxk"), ExtResource("9_r56qy"), ExtResource("10_eo7bd"), ExtResource("11_c2h5s"), ExtResource("12_yeu16"), ExtResource("13_2jj1a"), ExtResource("14_ec51p"), ExtResource("15_jsfht"), ExtResource("16_2ifxk"), ExtResource("17_r56qy")])
 
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

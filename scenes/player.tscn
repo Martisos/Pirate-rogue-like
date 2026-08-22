@@ -50,4 +50,36 @@ offset_top = -22.0
 offset_right = 64.0
 offset_bottom = 23.0
 
+[node name="Stats" type="CanvasLayer" parent="." unique_id=1005706591]
+
+[node name="Health" type="Label" parent="Stats" unique_id=1769038786]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: 3/3"
+
+[node name="Speed" type="Label" parent="Stats" unique_id=106026258]
+offset_top = 22.0
+offset_right = 40.0
+offset_bottom = 45.0
+text = "Speed: 250"
+
+[node name="Damage" type="Label" parent="Stats" unique_id=1340675569]
+offset_left = 1.0
+offset_top = 45.0
+offset_right = 41.0
+offset_bottom = 68.0
+text = "Damage: 1"
+
+[node name="AttackSpeed" type="Label" parent="Stats" unique_id=255114147]
+offset_top = 69.0
+offset_right = 133.0
+offset_bottom = 92.0
+text = "Attack Speed: 1.0"
+
+[node name="NextLevel" type="Label" parent="Stats" unique_id=1297457180]
+offset_top = 90.0
+offset_right = 133.0
+offset_bottom = 113.0
+text = "To next level: "
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
