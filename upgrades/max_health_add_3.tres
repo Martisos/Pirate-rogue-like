@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dxqy1")
-title = "Max Health"
+title = "Max Health III"
 description = "+3 max health"
 rarity = 3
 upgrade_type = "max_health"

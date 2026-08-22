@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_73jcu")
-description = "+2100 to speed of your ship"
+title = "Speed Up!"
+description = "+100 to speed of your ship"
 rarity = 3
-upgrade_type = "speed"
 value = 100.0
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

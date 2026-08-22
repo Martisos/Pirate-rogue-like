@@ -45,6 +45,8 @@ func show_upgrades() -> void:
 			var card = current_choices[i]
 			card_buttons[i].show()
 			card_buttons[i].text = card.title + "\n\n" + card.description
+			
+			card_buttons[i].icon = card.icon
 		else:
 			card_buttons[i].hide()
 	

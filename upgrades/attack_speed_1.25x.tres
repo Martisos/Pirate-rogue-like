@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_klhvc")
+title = "Attack Speed 1.25x"
+description = "Shoot faster! (1.25x)"
 value = 1.25
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

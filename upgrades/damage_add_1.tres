@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_24cgf")
+title = "Damage up!"
 description = "x2 Damage!"
 rarity = 2
 upgrade_type = "damage"

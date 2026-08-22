@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_d5712")
-title = "Better Cannon"
-description = "Attack 2x Faster!"
+title = "Attack Speed 2x"
+description = "Shoot even faster! (2x)"
 rarity = 3
 upgrade_type = "attack_speed"
 value = 2.0

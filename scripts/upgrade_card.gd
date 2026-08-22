@@ -16,7 +16,9 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 	match upgrade_type:
 		"speed":
 			player.speed += int(value)
+			player.turn_speed += value / 200
 			print("new speed: ", player.speed)
+			print("new turn speed: ", player.turn_speed)
 		"damage":
 			player.bonus_damage += int(value)
 			print("new damage: ", 1 + player.bonus_damage)

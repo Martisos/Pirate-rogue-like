@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var speed = 250.0
-var turn_speed = 4.0
+var speed: float = 250.0
+var turn_speed: float = 2.0
 
 
 @export var cannonball_scene: PackedScene = preload("uid://c3c8elea3mokb")
@@ -13,6 +13,7 @@ var turn_speed = 4.0
 @onready var label_damage: Label = $Stats/Damage
 @onready var label_attack_speed: Label = $Stats/AttackSpeed
 @onready var label_next_level: Label = $Stats/NextLevel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
