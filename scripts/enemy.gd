@@ -78,6 +78,7 @@ func shoot() -> void:
 				get_tree().root.add_child(ball)
 				ball.global_position = cannon.global_position
 				ball.rotation = rotation - (PI / 2.0)
+				
 			elif cannon.name.begins_with("R") and not shot_left:
 				var ball = cannonball_scene.instantiate()
 				ball.shooter = self

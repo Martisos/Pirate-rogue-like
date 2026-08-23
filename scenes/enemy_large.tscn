@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dqghf3fibrvwp"]
+
+[ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="1_cvi43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvi43"]
+size = Vector2(288, 160)
+
+[node name="Enemy" unique_id=992288199 instance=ExtResource("1_cvi43")]
+speed = 300.0
+max_health = 7
+attack_range = 750.0
+attack_cooldown = 1.0
+turn_speed = 4.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=403356201]
+scale = Vector2(2.25, 1.25)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=737062971]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_cvi43")
+
+[node name="Lcanon" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=1963938422]
+position = Vector2(0, -80)
+
+[node name="Rcanon" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=389776854]
+position = Vector2(0, 80)
+
+[node name="Lcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="2" unique_id=861780823]
+position = Vector2(-57, -80)
+
+[node name="Lcanon3" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="3" unique_id=1708846995]
+position = Vector2(57, -80)
+
+[node name="Rcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="4" unique_id=1661203857]
+position = Vector2(-57, 80)
+
+[node name="Rcanon3" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="5" unique_id=987491004]
+position = Vector2(57, 80)
