@@ -64,4 +64,11 @@ autostart = true
 [node name="LevelUpUI" parent="." unique_id=1221979977 instance=ExtResource("5_x368c")]
 all_avaiable_upgrades = Array[ExtResource("6_ulrur")]([ExtResource("7_mjk3i"), ExtResource("8_2ifxk"), ExtResource("9_r56qy"), ExtResource("10_eo7bd"), ExtResource("11_c2h5s"), ExtResource("12_yeu16"), ExtResource("13_2jj1a"), ExtResource("14_ec51p"), ExtResource("15_jsfht"), ExtResource("16_2ifxk"), ExtResource("17_r56qy")])
 
+[node name="Direction" type="ColorRect" parent="." unique_id=2097659720]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

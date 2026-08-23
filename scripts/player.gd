@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 250.0
 var turn_speed: float = 2.0
-
+var can_move: bool = true
 
 @export var cannonball_scene: PackedScene = preload("uid://c3c8elea3mokb")
 @onready var level_up_ui: CanvasLayer = $"../LevelUpUI"
@@ -14,6 +14,7 @@ var turn_speed: float = 2.0
 @onready var label_attack_speed: Label = $Stats/AttackSpeed
 @onready var label_next_level: Label = $Stats/NextLevel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var direction: ColorRect = $"../Direction"
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
@@ -36,10 +37,12 @@ func _ready() -> void:
 	target = global_position
 	shoot_timer.wait_time = shoot_cooldown
 	shoot_timer.start()
+	can_move = true
 
 func _input(event) -> void:
-	if event.is_action_pressed("click"):
+	if event.is_action_pressed("click") and can_move:
 		target = get_global_mouse_position()
+		direction.global_position = target
 
 func _physics_process(delta: float) -> void:
 	
@@ -67,6 +70,17 @@ func _update_stats_display() -> void:
 	label_attack_speed.text = "Attack Speed: " + str(shoot_cooldown)
 	label_next_level.text = "To next level: " + str(exp_to_new_level - current_exp)
 
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	#there will be something
+	print("died, Your level: ", level)
+	can_move = false
+	speed = 0.0
+	pass
 
 func _on_shoot_timer_timeout() -> void:
 	
