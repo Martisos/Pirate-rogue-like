@@ -8,7 +8,6 @@ extends CharacterBody2D
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
 @export var exp_drop : PackedScene = preload("uid://c2cc2gctbtjcr")
 
-
 var health: int
 var player = null
 var can_shoot: bool = true
@@ -16,27 +15,38 @@ var choosen_side: String = ""
 
 @onready var shoot_cooldown: Timer = $ShootCooldown
 @onready var cannons_node: Node2D = $Cannons
+@onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 
 func _ready() -> void:
 	health = max_health
+	nav_agent.max_speed = speed
 	var playersGroup = get_tree().get_nodes_in_group("player")
 	if playersGroup.size() > 0:
 		player = playersGroup[0]
+	nav_agent.velocity_computed.connect(_on_safe_velocity_computed)
+	
 
 func _physics_process(delta: float) -> void:
 	if not player:
 		return
 	
 	var distance_to_player = global_position.distance_to(player.global_position)
+	var direction_to_player = global_position.direction_to(player.global_position)
 	
-	var target_direction = global_position.direction_to(player.global_position)
-	var target_angle = target_direction.angle()
+	nav_agent.target_position = player.global_position
+	var next_path_pos = nav_agent.get_next_path_position()
+	var direction_to_path = global_position.direction_to(next_path_pos)
+	
+	
+	var target_angle = 0.0
 	
 	if distance_to_player <= attack_range:
+		target_angle = direction_to_player.angle()
+		
 		if choosen_side == "":
 			var enemy_forward = Vector2.RIGHT.rotated(rotation)
-			var cross_product = enemy_forward.cross(target_direction)
+			var cross_product = enemy_forward.cross(direction_to_player)
 			
 			if cross_product < 0:
 				choosen_side = "left"
@@ -50,19 +60,27 @@ func _physics_process(delta: float) -> void:
 			target_angle -= PI / 2.0
 	else:
 		choosen_side = ""
+		target_angle = direction_to_path.angle()
 		
 	rotation = lerp_angle(rotation, target_angle, turn_speed * delta)
 	
-	#attacks and movement
+	var intended_velocity = Vector2.ZERO
+	
 	if distance_to_player > attack_range:
-		velocity = Vector2.RIGHT.rotated(rotation) * speed
-		move_and_slide()
+		intended_velocity = direction_to_path * speed
 	else:
-		
-		velocity = Vector2.ZERO
-		
 		if can_shoot:
 			shoot()
+	
+	if nav_agent.avoidance_enabled:
+		nav_agent.set_velocity(intended_velocity)
+	else:
+		_on_safe_velocity_computed(intended_velocity)
+
+func _on_safe_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	move_and_slide()
+	print("going! ", velocity)
 
 func shoot() -> void:
 	if cannonball_scene != null and cannons_node != null:

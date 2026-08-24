@@ -46,7 +46,7 @@ func _input(event) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if position.distance_to(target) < 20:
+	if position.distance_to(target) < 40:
 		velocity = Vector2.ZERO
 	
 	if position.distance_to(target) > 20:

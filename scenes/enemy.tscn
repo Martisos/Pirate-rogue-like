@@ -25,4 +25,9 @@ position = Vector2(0, -64)
 [node name="Rcanon" type="Marker2D" parent="Cannons" unique_id=389776854]
 position = Vector2(0, 64)
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1653678]
+avoidance_enabled = true
+radius = 120.0
+debug_enabled = true
+
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

@@ -30,6 +30,11 @@ shader_parameter/wave_frequency1 = 2
 shader_parameter/wave_frequency2 = 1
 shader_parameter/water_tint = Color(0.5014065, 0.50140655, 0.5014063, 1)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kb7tl"]
+vertices = PackedVector2Array(11075.133, -1289.0078, 11244.859, 10966.078, -1453.0938, 11067.906, -1575.8906, -1301.9766)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-0.7213333, -0.3451111, -0.7537778, 2.498889, 2.5391111, 2.5102222, 2.5424445, -0.35311112), PackedVector2Array(-1586, -1312, -1463, 11078, 11255, 10976, 11085, -1299)])
+
 [node name="World" type="Node2D" unique_id=1181621573]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1980016627]
@@ -40,6 +45,7 @@ color = Color(0.17507088, 0.24465424, 0.5806016, 1)
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=45993699]
 repeat_size = Vector2(200, 200)
 repeat_times = 50
+ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1898804577]
 texture_repeat = 2
@@ -70,5 +76,8 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0, 1, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1748879483]
+navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
