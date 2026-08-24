@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://ccwcrmbe2xu4v"]
 
+[ext_resource type="Texture2D" uid="uid://b8ju75elwn0ri" path="res://resources/sprites/icons/heal.png" id="1_ap47y"]
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_fg6x8"]
 
 [resource]
@@ -7,5 +8,6 @@ script = ExtResource("1_fg6x8")
 title = "Heal II"
 description = "Heal 2 HP"
 rarity = 1
+icon = ExtResource("1_ap47y")
 upgrade_type = "heal"
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

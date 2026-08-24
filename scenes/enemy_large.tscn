@@ -10,7 +10,7 @@ speed = 300.0
 max_health = 7
 attack_range = 750.0
 attack_cooldown = 1.0
-turn_speed = 4.0
+turn_speed = 8.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=403356201]
 scale = Vector2(2.25, 1.25)

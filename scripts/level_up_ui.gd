@@ -26,7 +26,6 @@ func show_upgrades() -> void:
 		player = playersGroup[0]
 	
 	if !player:
-		print("uh oh")
 		return
 	
 	var valid_upgrades: Array[UpgradeCard] = []
@@ -40,8 +39,12 @@ func show_upgrades() -> void:
 	
 	current_choices = valid_upgrades.slice(0,3)
 	
+	show()
+	get_tree().paused = true
+	
 	for i in range(card_buttons.size()):
 		if i < current_choices.size():
+			await get_tree().create_timer(0.5).timeout
 			var card = current_choices[i]
 			card_buttons[i].show()
 			card_buttons[i].text = card.title + "\n\n" + card.description
@@ -50,8 +53,8 @@ func show_upgrades() -> void:
 		else:
 			card_buttons[i].hide()
 	
-	get_tree().paused = true
-	show()
+
+	
 
 func _on_card_selected(index: int) -> void:
 	var selected_upgrade: UpgradeCard = current_choices[index]

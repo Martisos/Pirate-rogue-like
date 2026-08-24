@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://cj0vpomtn23s0"]
 
+[ext_resource type="Texture2D" uid="uid://0bl2oor585u" path="res://resources/sprites/icons/speed.png" id="1_uqmuj"]
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_ykvmy"]
 
 [resource]
@@ -7,5 +8,6 @@ script = ExtResource("1_ykvmy")
 title = "Speed Up!"
 description = "+75 to speed of your ship"
 rarity = 2
+icon = ExtResource("1_uqmuj")
 value = 75.0
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

@@ -28,7 +28,7 @@ var bonus_damage: int = 0
 
 var level: int = 1
 var current_exp: float = 0.0
-var exp_to_new_level: float = 5.0
+var exp_to_new_level: float = 1.0
 
 var target: Vector2
 
@@ -46,10 +46,10 @@ func _input(event) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if position.distance_to(target) < 40:
+	if position.distance_to(target) < 50:
 		velocity = Vector2.ZERO
 	
-	if position.distance_to(target) > 20:
+	if position.distance_to(target) > 50:
 		var direction_to_target = global_position.direction_to(target)
 		var target_angle = direction_to_target.angle()
 		
@@ -85,6 +85,9 @@ func die() -> void:
 func _on_shoot_timer_timeout() -> void:
 	
 	shoot_timer.wait_time = shoot_cooldown
+	
+	if !can_move:
+		return
 	
 	if cannonball_scene != null:
 		var ball_left = cannonball_scene.instantiate()

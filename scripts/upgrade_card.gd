@@ -24,6 +24,11 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 			print("new damage: ", 1 + player.bonus_damage)
 		"max_health":
 			player.max_health += int(value)
+			
+			if player.health + int(value) > player.max_health:
+				player.health = player.max_health
+			else:
+				player.health += int(value)
 			print("new max health:", player.max_health)
 		"heal":
 			if player.health + int(value) > player.max_health:

@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://np08hlo7ndbg"]
 
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_p1kgn"]
+[ext_resource type="Texture2D" uid="uid://bjmlx6aeon7fb" path="res://resources/sprites/icons/max_health.png" id="1_ptmsa"]
 
 [resource]
 script = ExtResource("1_p1kgn")
 title = "Max Health"
 description = "+1 max health"
 rarity = 2
+icon = ExtResource("1_ptmsa")
 upgrade_type = "max_health"
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

@@ -80,7 +80,6 @@ func _physics_process(delta: float) -> void:
 func _on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
-	print("going! ", velocity)
 
 func shoot() -> void:
 	if cannonball_scene != null and cannons_node != null:
