@@ -9,9 +9,15 @@ extends CanvasLayer
 ]
 
 var current_choices: Array[UpgradeCard] = []
-
 var player = null
 
+# 0 - common; 1 - rare, 2 - epic, 3 - legendary
+const RARITY_WEIGHTS = {
+	0: 40.0,
+	1: 30.0,
+	2: 20.0,
+	3: 10.0
+}
 
 func _ready() -> void:
 	hide()
@@ -28,6 +34,7 @@ func show_upgrades() -> void:
 	if !player:
 		return
 	
+	
 	var valid_upgrades: Array[UpgradeCard] = []
 	
 	for upgrade in all_avaiable_upgrades:
@@ -35,10 +42,42 @@ func show_upgrades() -> void:
 			continue
 		valid_upgrades.append(upgrade)
 	
-	valid_upgrades.shuffle()
+	# random upgrades
+	current_choices.clear()
+	var num_to_pick = min(3, valid_upgrades.size())
 	
-	current_choices = valid_upgrades.slice(0,3)
-	
+	for i in range(num_to_pick):
+		var current_weights = {}
+		var total_weight = 0.0
+		
+		for card in valid_upgrades:
+			if not current_weights.has(card.rarity):
+				current_weights[card.rarity] = RARITY_WEIGHTS[card.rarity]
+				total_weight += RARITY_WEIGHTS[card.rarity]
+		
+		var roll = randf_range(0.0, total_weight)
+		var current_sum = 0.0
+		var chosen_rarity = -1
+		
+		for rarity in current_weights.keys():
+			current_sum += current_weights[rarity]
+			if roll <= current_sum:
+				chosen_rarity = rarity
+				break
+		
+		var cards_of_chosen_rarity: Array[UpgradeCard] = []
+		for card in valid_upgrades:
+			if card.rarity == chosen_rarity:
+				cards_of_chosen_rarity.append(card)
+		
+		var picked_card = cards_of_chosen_rarity.pick_random()
+		
+		print(picked_card.rarity, " ", picked_card.title)
+		current_choices.append(picked_card)
+		
+		valid_upgrades.erase(picked_card)
+		
+		
 	show()
 	get_tree().paused = true
 	
