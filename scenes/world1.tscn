@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_3.tres" id="15_jsfht"]
 [ext_resource type="Resource" uid="uid://brenop1adk854" path="res://upgrades/attack_speed_1.25x.tres" id="16_2ifxk"]
 [ext_resource type="Resource" uid="uid://c240sjcox8ykd" path="res://upgrades/attack_speed_2x.tres" id="17_r56qy"]
+[ext_resource type="PackedScene" uid="uid://bdtryfugykwtn" path="res://scenes/player_ui.tscn" id="22_2jj1a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r56qy"]
 shader = ExtResource("1_eo7bd")
@@ -80,4 +81,9 @@ color = Color(0, 1, 0, 1)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1748879483]
 navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 
+[node name="PlayerUI" parent="." unique_id=24496737 instance=ExtResource("22_2jj1a")]
+
+[connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
+[connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]
+[connection signal="level_up_signal" from="Player" to="PlayerUI" method="_on_player_level_up_signal"]
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

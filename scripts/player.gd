@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+signal health_changed_signal(current_health, max_health)
+signal exp_changed_signal(current_exp, exp_to_new_level)
+signal level_up_signal(new_level)
+
 var speed: float = 250.0
 var turn_speed: float = 2.0
 var can_move: bool = true
@@ -28,7 +32,7 @@ var bonus_damage: int = 0
 
 var level: int = 1
 var current_exp: float = 0.0
-var exp_to_new_level: float = 1.0
+var exp_to_new_level: float = 5.0
 
 var target: Vector2
 
@@ -72,6 +76,7 @@ func _update_stats_display() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	health_changed_signal.emit(health, max_health)
 	if health <= 0:
 		die()
 
@@ -106,8 +111,10 @@ func _on_shoot_timer_timeout() -> void:
 
 func gain_exp(amount: int):
 	current_exp += amount
+	exp_changed_signal.emit(current_exp, exp_to_new_level)
 	if current_exp >= exp_to_new_level:
 		level_up()
+		
 
 
 func level_up():
@@ -115,5 +122,9 @@ func level_up():
 	current_exp -= exp_to_new_level
 	exp_to_new_level = int(exp_to_new_level * 1.4)
 	print("level up: ", level)
+	
+	level_up_signal.emit(level)
+	exp_changed_signal.emit(current_exp, exp_to_new_level)
+	
 	if level_up_ui != null:
 		level_up_ui.show_upgrades()

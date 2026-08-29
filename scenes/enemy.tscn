@@ -28,6 +28,8 @@ position = Vector2(0, 64)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1653678]
 avoidance_enabled = true
 radius = 110.0
+neighbor_distance = 9000.0
+max_neighbors = 40
 debug_enabled = true
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

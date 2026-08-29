@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bdtryfugykwtn"]
+
+[ext_resource type="Script" uid="uid://itr8idma8j6e" path="res://scripts/player_ui.gd" id="1_jkj6h"]
+[ext_resource type="Texture2D" uid="uid://nlkhcy6eefxt" path="res://resources/sprites/progressbar_down.png" id="2_48xfa"]
+[ext_resource type="Texture2D" uid="uid://d0lufsbg3txmd" path="res://resources/sprites/progressbar_progess.png" id="3_8isll"]
+
+[node name="PlayerUI" type="CanvasLayer" unique_id=24496737]
+script = ExtResource("1_jkj6h")
+
+[node name="ExpBar" type="TextureProgressBar" parent="." unique_id=1824281335]
+custom_minimum_size = Vector2(750, 50)
+custom_maximum_size = Vector2(750, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 23.0
+offset_right = 250.0
+offset_bottom = 73.0
+grow_horizontal = 2
+step = 0.01
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("2_48xfa")
+texture_progress = ExtResource("3_8isll")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=583537285]
+custom_minimum_size = Vector2(300, 50)
+offset_left = 23.0
+offset_top = 575.0
+offset_right = 394.0
+offset_bottom = 625.0
+step = 0.01
+value = 33.0
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 20
+stretch_margin_right = 20
+stretch_margin_bottom = 20
+texture_under = ExtResource("2_48xfa")
+texture_progress = ExtResource("3_8isll")
