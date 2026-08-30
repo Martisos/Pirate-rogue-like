@@ -1,0 +1,57 @@
+drawings:
+	icons: magnet, shoot_cooldown
+	cannonball: particle, 4 other variants
+	ships: mini, medium, large
+	loot: mini, small, medium, large exp loots
+	water: larger image size so it does not look so goofy + try make it so i wont have to darken it
+---
+
+systems:
+	exp_loot:
+		change how much it gives
+	
+	check your upgrades:
+		button to show your upgrades inside the card choosing sequence
+	
+	card choosing:
+		fix the problem with overlaying cards
+	
+	game over screen
+	
+	win condition? (like in megabonk?)
+	
+	timer
+	
+	enemy counter
+	
+	maybe some islands or something on the water
+	
+	game feel:
+		hit flash
+		awesome boom effects
+		screen shake
+		particles:
+			cannonball
+			puddles showing while you sail
+
+
+Main Menu:
+	Buttons:
+		play
+		options
+			music,sfx, camerashake toggle, water toggle
+
+Upgrade cards:
+	magnet size
+	camera zoom out
+	enemies speed down
+	enemies bullet speed down
+	enemies shot speed down
+
+AUDIO:
+	music:
+		main menu
+		battle
+	sfx:
+		explosion
+		getting hit

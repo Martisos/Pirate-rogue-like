@@ -45,6 +45,9 @@ _data = {
 &"idle": SubResource("Animation_dqkch")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
+radius = 156.46086
+
 [node name="Player" type="CharacterBody2D" unique_id=2110241415 groups=["player"]]
 script = ExtResource("1_g2els")
 
@@ -107,5 +110,10 @@ text = "To next level: "
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377576827]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 autoplay = &"idle"
+
+[node name="ExpMagnet" type="Area2D" parent="." unique_id=1016163381 groups=["exp_magnet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExpMagnet" unique_id=182571498 groups=["exp_magnet"]]
+shape = SubResource("CircleShape2D_kb7tl")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

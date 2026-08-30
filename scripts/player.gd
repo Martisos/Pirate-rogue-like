@@ -18,7 +18,9 @@ var can_move: bool = true
 @onready var label_attack_speed: Label = $Stats/AttackSpeed
 @onready var label_next_level: Label = $Stats/NextLevel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var exp_magnet: Area2D = $ExpMagnet
 @onready var direction: ColorRect = $"../Direction"
+
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
@@ -30,10 +32,12 @@ var health: int = 3
 var shoot_cooldown: float = 1.0
 var bonus_damage: int = 0
 
+
+
 var level: int = 1
 var current_exp: float = 0.0
 var exp_to_new_level: float = 5.0
-
+var magnet_area: float = 1.0
 var target: Vector2
 
 

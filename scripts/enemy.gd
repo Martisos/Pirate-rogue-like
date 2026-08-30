@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var turn_speed: float = 2.0
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
 @export var exp_drop : PackedScene = preload("uid://c2cc2gctbtjcr")
+@export var exp_amount : int = 1
 
 var health: int
 var player = null
@@ -116,6 +117,7 @@ func die():
 		var drop = exp_drop.instantiate()
 		get_tree().current_scene.call_deferred("add_child", drop)
 		drop.global_position = global_position
+		drop.set_exp_amount(exp_amount)
 	queue_free()
 
 func _on_shoot_cooldown_timeout() -> void:

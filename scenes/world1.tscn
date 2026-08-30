@@ -29,7 +29,7 @@ shader_parameter/time_speed = 0.5
 shader_parameter/wave_amplitude = 0.02
 shader_parameter/wave_frequency1 = 2
 shader_parameter/wave_frequency2 = 1
-shader_parameter/water_tint = Color(0.5014065, 0.50140655, 0.5014063, 1)
+shader_parameter/water_tint = Color(0.5370987, 0.5370987, 0.5370987, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kb7tl"]
 vertices = PackedVector2Array(11075.133, -1289.0078, 11244.859, 10966.078, -1453.0938, 11067.906, -1575.8906, -1301.9766)

@@ -5,9 +5,6 @@ extends CanvasLayer
 @onready var exp_bar: TextureProgressBar = $ExpBar
 @onready var health_bar: TextureProgressBar = $HealthBar
 
-
-@onready var upgrades_button: Button = $Upgrades
-
 #---Stats---
 var max_health: int
 var health: int
