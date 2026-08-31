@@ -16,28 +16,29 @@ var can_move: bool = true
 @onready var label_speed: Label = $Stats/Speed
 @onready var label_damage: Label = $Stats/Damage
 @onready var label_attack_speed: Label = $Stats/AttackSpeed
+@onready var label_exp_to_level: Label = $Stats/Exp_to_level
 @onready var label_next_level: Label = $Stats/NextLevel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var exp_magnet: Area2D = $ExpMagnet
 @onready var direction: ColorRect = $"../Direction"
-
+@onready var camera: Camera2D = $Camera2D
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
 
-var max_health: int = 3
+var max_health: int = 6
 var health: int = 3
 
-var shoot_cooldown: float = 1.0
-var bonus_damage: int = 0
+var shoot_cooldown: float = 0.2
+var bonus_damage: int = 3
 
-
+var camera_zoom: float = 0.7
 
 var level: int = 1
 var current_exp: float = 0.0
 var exp_to_new_level: float = 5.0
-var magnet_area: float = 1.0
+var magnet_area_size: float = 1.0
 var target: Vector2
 
 
@@ -77,6 +78,11 @@ func _update_stats_display() -> void:
 	label_damage.text = "Damage: " + str(1 + bonus_damage)
 	label_attack_speed.text = "Attack Speed: " + str(shoot_cooldown)
 	label_next_level.text = "To next level: " + str(exp_to_new_level - current_exp)
+	label_exp_to_level.text = "Exp to new level: " + str(exp_to_new_level)
+
+func apply_unique_upgrades() -> void:
+	exp_magnet.scale = Vector2(magnet_area_size, magnet_area_size) 
+	camera.zoom = Vector2(camera_zoom, camera_zoom)
 
 func take_damage(amount: int) -> void:
 	health -= amount

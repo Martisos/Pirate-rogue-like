@@ -7,9 +7,6 @@ drawings:
 ---
 
 systems:
-	exp_loot:
-		change how much it gives
-	
 	check your upgrades:
 		button to show your upgrades inside the card choosing sequence
 	
@@ -22,9 +19,13 @@ systems:
 	
 	timer
 	
+	Enemies can get debuffs
+	
 	enemy counter
 	
 	maybe some islands or something on the water
+	
+	
 	
 	game feel:
 		hit flash
@@ -41,9 +42,11 @@ Main Menu:
 		options
 			music,sfx, camerashake toggle, water toggle
 
+
+
 Upgrade cards:
-	magnet size
-	camera zoom out
+	magnet size V
+	camera zoom out V
 	enemies speed down
 	enemies bullet speed down
 	enemies shot speed down

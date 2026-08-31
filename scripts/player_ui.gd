@@ -4,6 +4,10 @@ extends CanvasLayer
 
 @onready var exp_bar: TextureProgressBar = $ExpBar
 @onready var health_bar: TextureProgressBar = $HealthBar
+@onready var timer_label: Label = $TimerLabel
+@onready var timer: Timer = $Timer
+
+var time_survived: float = 0.0
 
 #---Stats---
 var max_health: int
@@ -23,6 +27,13 @@ func _ready() -> void:
 	exp_bar.max_value = player.exp_to_new_level
 	exp_bar.value = player.current_exp
 
+func _process(delta: float) -> void:
+	time_survived += delta
+	
+	var minutes: int = int(time_survived) / 60
+	var seconds: int = int(time_survived) % 60
+	
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_player_exp_changed_signal(current_exp_s: Variant, exp_to_new_level_s: Variant) -> void:
 	exp_bar.max_value = exp_to_new_level_s
@@ -42,3 +53,6 @@ func _on_player_level_up_signal(new_level_s: Variant) -> void:
 	
 	var exp_over = player.exp_to_new_level - player.current_exp
 	exp_bar.value = 0
+
+func _on_timer_timeout() -> void:
+	timer_label.text = str(ceil(timer.time))
