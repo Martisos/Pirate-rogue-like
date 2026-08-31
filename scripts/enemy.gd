@@ -68,7 +68,11 @@ func _physics_process(delta: float) -> void:
 	var intended_velocity = Vector2.ZERO
 	
 	if distance_to_player > attack_range:
-		intended_velocity = direction_to_path * speed
+		
+		var current_speed = speed * EnemyDebuffs.speed_debuff_multiplier
+		nav_agent.max_speed = current_speed
+		
+		intended_velocity = direction_to_path * current_speed
 	else:
 		if can_shoot:
 			shoot()
@@ -96,6 +100,7 @@ func shoot() -> void:
 				get_tree().root.add_child(ball)
 				ball.global_position = cannon.global_position
 				ball.rotation = rotation - (PI / 2.0)
+				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
 				
 			elif cannon.name.begins_with("R") and not shot_left:
 				var ball = cannonball_scene.instantiate()
@@ -103,8 +108,11 @@ func shoot() -> void:
 				get_tree().root.add_child(ball)
 				ball.global_position = cannon.global_position
 				ball.rotation = rotation + (PI / 2.0)
+				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
 				
-			shoot_cooldown.start(attack_cooldown)
+			shoot_cooldown.start(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
+			print(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
+			print(attack_cooldown)
 
 func take_damage(amount: int) -> void:
 	health -= amount

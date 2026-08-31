@@ -2,12 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://clteg3oeoqg7y" path="res://icon.svg" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dvjdgvinm80f4" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://bebi2vmvg51f" path="res://scenes/enemy_cannonball.tscn" id="2_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
 size = Vector2(128, 128)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=992288199]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_md0e3")
+cannonball_scene = ExtResource("2_4ra3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=403356201]
 texture = ExtResource("1_7p1mj")

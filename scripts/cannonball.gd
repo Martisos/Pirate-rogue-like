@@ -3,7 +3,7 @@ extends Area2D
 @export var damage: int = 1
 @export var through_ships_ball: int = 0
 
-const speed = 700.0
+var speed = 700.0
 var can_go_through_ships: bool = false
 var through_ships: int
 

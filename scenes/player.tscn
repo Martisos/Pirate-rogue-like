@@ -49,6 +49,7 @@ _data = {
 radius = 156.46086
 
 [node name="Player" type="CharacterBody2D" unique_id=2110241415 groups=["player"]]
+collision_mask = 10
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=25828751]

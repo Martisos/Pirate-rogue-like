@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://c3c8elea3mokb"]
+[gd_scene format=3 uid="uid://bebi2vmvg51f"]
 
-[ext_resource type="Script" uid="uid://dfwu3hsyr66h6" path="res://scripts/cannonball.gd" id="1_77qtm"]
-[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball.png" id="2_402uy"]
+[ext_resource type="Script" uid="uid://dfwu3hsyr66h6" path="res://scripts/cannonball.gd" id="1_de1mn"]
+[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball.png" id="2_ju4ay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 radius = 16.0
 
 [node name="Cannonball" type="Area2D" unique_id=903194545]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("1_77qtm")
+collision_layer = 8
+script = ExtResource("1_de1mn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264283198]
+modulate = Color(1, 0.05490196, 0.13333334, 1)
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.39411765, 0.39411765)
-texture = ExtResource("2_402uy")
+texture = ExtResource("2_ju4ay")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1790196481]
 visible = false
