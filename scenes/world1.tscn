@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://brenop1adk854" path="res://upgrades/attack_speed_1.25x.tres" id="16_2ifxk"]
 [ext_resource type="Resource" uid="uid://c240sjcox8ykd" path="res://upgrades/attack_speed_2x.tres" id="17_r56qy"]
 [ext_resource type="PackedScene" uid="uid://bdtryfugykwtn" path="res://scenes/player_ui.tscn" id="22_2jj1a"]
+[ext_resource type="PackedScene" uid="uid://c2cc2gctbtjcr" path="res://scenes/exp_drop.tscn" id="23_ec51p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r56qy"]
 shader = ExtResource("1_eo7bd")
@@ -57,9 +58,6 @@ texture = ExtResource("1_r56qy")
 [node name="Player" parent="." unique_id=2110241415 instance=ExtResource("1_6kdnw")]
 position = Vector2(4500, 4500)
 
-[node name="Enemy" parent="." unique_id=992288199 instance=ExtResource("2_rp871")]
-position = Vector2(7053, 3934)
-
 [node name="EnemySpawner" type="Node" parent="." unique_id=544766623]
 script = ExtResource("3_scryw")
 enemies = Array[PackedScene]([ExtResource("4_6u51x"), ExtResource("2_rp871"), ExtResource("7_yeu16"), ExtResource("8_2jj1a")])
@@ -82,6 +80,10 @@ color = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 
 [node name="PlayerUI" parent="." unique_id=24496737 instance=ExtResource("22_2jj1a")]
+
+[node name="ExpDrop" parent="." unique_id=823489768 instance=ExtResource("23_ec51p")]
+position = Vector2(5013, 4509)
+exp_amount = 3
 
 [connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
 [connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]

@@ -24,7 +24,7 @@ func add_additional_exp_amount(number: int) -> void:
 
 func _process(delta: float) -> void:
 	if go_to_player:
-		position = position.move_toward(player.position, speed * delta)
+		global_position = global_position.move_toward(player.global_position, speed * delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

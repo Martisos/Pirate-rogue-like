@@ -1,6 +1,10 @@
 extends CanvasLayer
 
 @export var all_avaiable_upgrades: Array[UpgradeCard]
+@onready var upgrades: Control = $Upgrades
+@onready var button: Button = $Upgrades/Button
+
+var upgrades_owned_menu_shown: bool = false
 
 @onready var card_buttons: Array[Button] = [
 	$HBoxContainer/Card1,
@@ -27,6 +31,10 @@ func _ready() -> void:
 
 func show_upgrades() -> void:
 	
+	if upgrades_owned_menu_shown:
+		_on_button_mouse_entered()
+	
+	
 	var playersGroup = get_tree().get_nodes_in_group("player")
 	if playersGroup.size() > 0:
 		player = playersGroup[0]
@@ -34,6 +42,8 @@ func show_upgrades() -> void:
 	if !player:
 		return
 	
+	for button in card_buttons:
+		button.hide()
 	
 	var valid_upgrades: Array[UpgradeCard] = []
 	
@@ -101,3 +111,18 @@ func _on_card_selected(index: int) -> void:
 	selected_upgrade.apply_upgrade(player)
 	hide()
 	get_tree().paused = false
+	
+	if player.has_method("process_next_level_up"):
+		player.process_next_level_up()
+
+
+func _on_button_mouse_entered() -> void:
+	upgrades_owned_menu_shown = !upgrades_owned_menu_shown
+	
+	if !upgrades_owned_menu_shown:
+		upgrades.position.x += 300
+		button.text = "<"
+	else:
+		upgrades.position.x -= 300
+		button.text = ">"
+	

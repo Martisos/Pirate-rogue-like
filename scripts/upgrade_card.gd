@@ -29,12 +29,15 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 				player.health = player.max_health
 			else:
 				player.health += int(value)
+			player.health_changed_signal.emit(player.health, player.max_health)
 			print("new max health:", player.max_health)
 		"heal":
 			if player.health + int(value) > player.max_health:
 				player.health = player.max_health
+
 			else:
 				player.health += int(value)
+			player.health_changed_signal.emit(player.health, player.max_health)
 			print("player health: ", player.health)
 		"attack_speed":
 			player.shoot_cooldown /= value

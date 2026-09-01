@@ -31,13 +31,15 @@ var max_health: int = 6
 var health: int = 3
 
 var shoot_cooldown: float = 0.2
-var bonus_damage: int = 3
+var bonus_damage: int = 5
 
 var camera_zoom: float = 0.7
 
 var level: int = 1
-var current_exp: float = 0.0
-var exp_to_new_level: float = 5.0
+var current_exp: int = 0
+var exp_to_new_level: int = 1
+var pending_level_ups: int = 0
+
 var magnet_area_size: float = 1.0
 var target: Vector2
 
@@ -121,16 +123,33 @@ func _on_shoot_timer_timeout() -> void:
 
 func gain_exp(amount: int):
 	current_exp += amount
-	exp_changed_signal.emit(current_exp, exp_to_new_level)
-	if current_exp >= exp_to_new_level:
-		level_up()
+	print(current_exp, " ", amount)
+	while current_exp >= exp_to_new_level:
+		current_exp -= exp_to_new_level
+		exp_to_new_level = int(exp_to_new_level * 1.4)
+		level += 1
+		pending_level_ups += 1
+		print("level_ups in queue: ", pending_level_ups)
 		
+	exp_changed_signal.emit(current_exp, exp_to_new_level)
+	
+	if pending_level_ups > 0 and not get_tree().paused:
+		process_next_level_up()
 
+func process_next_level_up() -> void:
+	if pending_level_ups > 0:
+		pending_level_ups -= 1
+		
+		await get_tree().create_timer(0.2, true, false, true).timeout
+		level_up_signal.emit(level)
+		
+		if level_up_ui != null:
+			level_up_ui.show_upgrades()
 
 func level_up():
 	level += 1
 	current_exp -= exp_to_new_level
-	exp_to_new_level = int(exp_to_new_level * 1.4)
+	
 	print("level up: ", level)
 	
 	level_up_signal.emit(level)
