@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bp1whw84ufvpv"]
+
+[ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="1_7o7px"]
+[ext_resource type="Texture2D" uid="uid://cmjjywlcg0wwh" path="res://resources/sprites/enemy_mini.png" id="2_yj0y0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og4if"]
+size = Vector2(172, 62)
+
+[node name="EnemySmall" unique_id=992288199 instance=ExtResource("1_7o7px")]
+max_health = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=403356201]
+rotation = 1.5707964
+texture = ExtResource("2_yj0y0")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=737062971]
+position = Vector2(-7, 1)
+shape = SubResource("RectangleShape2D_og4if")

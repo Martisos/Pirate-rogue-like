@@ -1,11 +1,49 @@
 [gd_scene format=3 uid="uid://dwqjqohfahwf7"]
 
-[ext_resource type="Texture2D" uid="uid://clteg3oeoqg7y" path="res://icon.svg" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dvjdgvinm80f4" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://bebi2vmvg51f" path="res://scenes/enemy_cannonball.tscn" id="2_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://dgx4dned5csqa" path="res://resources/sprites/player-spritesheet.png" id="3_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
-size = Vector2(128, 128)
+size = Vector2(202, 75)
+
+[sub_resource type="Animation" id="Animation_4ra3w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5uy6h"]
+resource_name = "idle"
+length = 0.999
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4w8v"]
+_data = {
+&"RESET": SubResource("Animation_4ra3w"),
+&"idle": SubResource("Animation_5uy6h")
+}
 
 [node name="Enemy" type="CharacterBody2D" unique_id=992288199]
 collision_layer = 2
@@ -14,9 +52,12 @@ script = ExtResource("1_md0e3")
 cannonball_scene = ExtResource("2_4ra3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=403356201]
-texture = ExtResource("1_7p1mj")
+rotation = 1.5707964
+texture = ExtResource("3_4ra3w")
+hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=737062971]
+position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="ShootCooldown" type="Timer" parent="." unique_id=618897603]
@@ -29,11 +70,20 @@ position = Vector2(0, -64)
 [node name="Rcanon" type="Marker2D" parent="Cannons" unique_id=389776854]
 position = Vector2(0, 64)
 
+[node name="Mcanon" type="Marker2D" parent="Cannons" unique_id=355751775]
+visible = false
+position = Vector2(0, 64)
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1653678]
 avoidance_enabled = true
 radius = 110.0
 neighbor_distance = 9000.0
 max_neighbors = 40
 debug_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=323370489]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_c4w8v")
+autoplay = &"idle"
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

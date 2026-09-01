@@ -1,3 +1,9 @@
+
+-----
+Middle Cannon!
+-----
+
+
 drawings:
 	icons: magnet, shoot_cooldown
 	cannonball: particle, 4 other variants

@@ -109,7 +109,9 @@ func shoot() -> void:
 				ball.global_position = cannon.global_position
 				ball.rotation = rotation + (PI / 2.0)
 				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
-				
+			
+			
+			
 			shoot_cooldown.start(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
 			print(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
 			print(attack_cooldown)
