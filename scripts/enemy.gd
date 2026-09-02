@@ -14,6 +14,8 @@ var player = null
 var can_shoot: bool = true
 var choosen_side: String = ""
 
+var has_middle_cannon: bool = false
+
 @onready var shoot_cooldown: Timer = $ShootCooldown
 @onready var cannons_node: Node2D = $Cannons
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -27,6 +29,11 @@ func _ready() -> void:
 		player = playersGroup[0]
 	nav_agent.velocity_computed.connect(_on_safe_velocity_computed)
 	
+	if cannons_node != null:
+		for cannon in cannons_node.get_children():
+			if cannon.name.begins_with("M"):
+				has_middle_cannon = true
+				break
 
 func _physics_process(delta: float) -> void:
 	if not player:
@@ -45,20 +52,21 @@ func _physics_process(delta: float) -> void:
 	if distance_to_player <= attack_range:
 		target_angle = direction_to_player.angle()
 		
-		if choosen_side == "":
-			var enemy_forward = Vector2.RIGHT.rotated(rotation)
-			var cross_product = enemy_forward.cross(direction_to_player)
-			
-			if cross_product < 0:
-				choosen_side = "left"
-			else:
-				choosen_side = "right"
-			
+		if not has_middle_cannon:
+			if choosen_side == "":
+				var enemy_forward = Vector2.RIGHT.rotated(rotation)
+				var cross_product = enemy_forward.cross(direction_to_player)
 				
-		if choosen_side == "left":
-			target_angle += PI / 2.0
-		else:
-			target_angle -= PI / 2.0
+				if cross_product < 0:
+					choosen_side = "left"
+				else:
+					choosen_side = "right"
+				
+					
+			if choosen_side == "left":
+				target_angle += PI / 2.0
+			else:
+				target_angle -= PI / 2.0
 	else:
 		choosen_side = ""
 		target_angle = direction_to_path.angle()
@@ -110,11 +118,16 @@ func shoot() -> void:
 				ball.rotation = rotation + (PI / 2.0)
 				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
 			
+			elif cannon.name.begins_with("M"):
+				var ball = cannonball_scene.instantiate()
+				ball.shooter = self
+				get_tree().root.add_child(ball)
+				ball.global_position = cannon.global_position
+				ball.rotation = rotation
+				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
 			
-			
-			shoot_cooldown.start(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
-			print(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
-			print(attack_cooldown)
+		shoot_cooldown.start(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
+
 
 func take_damage(amount: int) -> void:
 	health -= amount

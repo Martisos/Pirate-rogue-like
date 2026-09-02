@@ -19,14 +19,14 @@ scale = Vector2(1.5, 1)
 position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_d46ww")
 
-[node name="Lcanon" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=1963938422]
-position = Vector2(-25, -64)
-
-[node name="Rcanon" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=389776854]
-position = Vector2(-25, 64)
-
-[node name="Lcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="2" unique_id=1025338011]
+[node name="Lcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=1025338011]
 position = Vector2(25, -64)
 
-[node name="Rcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="3" unique_id=805956275]
+[node name="Rcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=805956275]
 position = Vector2(25, 64)
+
+[node name="Lcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="2" unique_id=1922231043]
+position = Vector2(-35, -64)
+
+[node name="Rcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="3" unique_id=133429331]
+position = Vector2(-35, 64)

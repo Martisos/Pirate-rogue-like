@@ -64,16 +64,6 @@ shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="Cannons" type="Node2D" parent="." unique_id=531455372]
 
-[node name="Lcanon" type="Marker2D" parent="Cannons" unique_id=1963938422]
-position = Vector2(0, -64)
-
-[node name="Rcanon" type="Marker2D" parent="Cannons" unique_id=389776854]
-position = Vector2(0, 64)
-
-[node name="Mcanon" type="Marker2D" parent="Cannons" unique_id=355751775]
-visible = false
-position = Vector2(0, 64)
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1653678]
 avoidance_enabled = true
 radius = 110.0

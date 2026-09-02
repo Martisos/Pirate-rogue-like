@@ -10,9 +10,11 @@ size = Vector2(172, 62)
 max_health = 1
 
 [node name="Sprite2D" parent="." index="0" unique_id=403356201]
-rotation = 1.5707964
 texture = ExtResource("2_yj0y0")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=737062971]
 position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_og4if")
+
+[node name="Mcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=441956293]
+position = Vector2(-24, 0)
