@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EnemyDebuffs="*uid://bd1optjfwsxkk"
+PlayerUpgrades="*uid://cgafh4w7ttmbv"
 
 [display]
 

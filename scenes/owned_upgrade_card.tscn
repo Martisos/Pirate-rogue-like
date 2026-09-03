@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dt1e1s5ocrhwg"]
+
+[ext_resource type="Script" uid="uid://d0fekelfrnbpp" path="res://scripts/owned_upgrade_card.gd" id="1_7tyom"]
+[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball.png" id="2_7twpb"]
+
+[node name="ownedUpgradeCard" type="Control" unique_id=1733549988]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 100.0
+script = ExtResource("1_7tyom")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=245530470]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+color = Color(0.12941177, 1, 1, 1)
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1769810538]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 100.0
+size_flags_horizontal = 0
+texture = ExtResource("2_7twpb")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=242773185]
+layout_mode = 0
+offset_left = 88.0
+offset_right = 250.0
+offset_bottom = 100.0
+
+[node name="Title" type="Label" parent="HBoxContainer" unique_id=894409096]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Title"
+
+[node name="Description" type="Label" parent="HBoxContainer" unique_id=647317566]
+layout_mode = 2
+text = "Description
+"

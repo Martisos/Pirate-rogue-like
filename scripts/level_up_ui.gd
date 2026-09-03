@@ -3,6 +3,9 @@ extends CanvasLayer
 @export var all_avaiable_upgrades: Array[UpgradeCard]
 @onready var upgrades: Control = $Upgrades
 @onready var button: Button = $Upgrades/Button
+@onready var owned_upgrades_container: VBoxContainer = $Upgrades/VBoxContainer/ScrollContainer/owned_upgrades_container
+@export var owned_item_scene: PackedScene = preload("uid://dt1e1s5ocrhwg")
+
 
 var upgrades_owned_menu_shown: bool = false
 
@@ -101,19 +104,36 @@ func show_upgrades() -> void:
 			card_buttons[i].icon = card.icon
 		else:
 			card_buttons[i].hide()
-	
 
-	
 
 func _on_card_selected(index: int) -> void:
 	var selected_upgrade: UpgradeCard = current_choices[index]
 	
+	PlayerUpgrades.add_upgrade(selected_upgrade)
+	
 	selected_upgrade.apply_upgrade(player)
+	update_owned_upgrades_display()
+	
 	hide()
 	get_tree().paused = false
 	
 	if player.has_method("process_next_level_up"):
 		player.process_next_level_up()
+
+
+func update_owned_upgrades_display():
+	for child in owned_upgrades_container.get_children():
+		child.queue_free()
+	
+	for card in PlayerUpgrades.upgrades:
+		if owned_item_scene != null:
+			var item_node = owned_item_scene.instantiate()
+			owned_upgrades_container.add_child(item_node)
+			
+			if item_node.has_method("setup"):
+				print("added child '", card.title, "' and setup!")
+				item_node.setup(card)
+				item_node.show()
 
 
 func _on_button_mouse_entered() -> void:
@@ -125,4 +145,5 @@ func _on_button_mouse_entered() -> void:
 	else:
 		upgrades.position.x -= 300
 		button.text = ">"
+		update_owned_upgrades_display()
 	

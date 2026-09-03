@@ -83,7 +83,7 @@ navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 
 [node name="ExpDrop" parent="." unique_id=823489768 instance=ExtResource("23_ec51p")]
 position = Vector2(5013, 4509)
-exp_amount = 3
+exp_amount = 15
 
 [connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
 [connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]
