@@ -21,11 +21,11 @@ systems:
 	
 	
 	game feel:
-		hit flash 
+		hit flash V
 		awesome boom effects
 		screen shake V
 		particles:
-			cannonball
+			cannonball V
 			puddles showing while you sail
 
 

@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var cannonball_scene : PackedScene = preload("uid://c3c8elea3mokb")
 @export var exp_drop : PackedScene = preload("uid://c2cc2gctbtjcr")
 @export var exp_amount : int = 1
+@onready var sprite: Sprite2D = $Sprite2D
 
 var health: int
 var player = null
@@ -133,6 +134,14 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		die()
+
+func apply_hit_flash() -> void:
+	var tween = create_tween()
+	
+	sprite.modulate = Color(15.0, 15.0, 15.0)
+	
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
+
 
 func die():
 	#fancy something after enemy dies
