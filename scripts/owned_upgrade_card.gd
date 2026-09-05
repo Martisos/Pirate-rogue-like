@@ -14,7 +14,8 @@ var rarity_colors = {
 	UpgradeCard.rarities.common: "929b98",
 	UpgradeCard.rarities.rare: "76d0ef",
 	UpgradeCard.rarities.epic: "bf9dfa",
-	UpgradeCard.rarities.legendary: "dba75a"
+	UpgradeCard.rarities.legendary: "dba75a",
+	UpgradeCard.rarities.debuff: "a62f56"
 }
 
 func setup(card: UpgradeCard):

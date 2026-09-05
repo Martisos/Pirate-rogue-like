@@ -72,7 +72,7 @@ offset_top = -326.0
 offset_right = 78.0
 offset_bottom = 326.0
 size_flags_vertical = 3
-color = Color(0.12941177, 0.21960784, 1, 1)
+color = Color(0.10065139, 0.29837736, 0.38345593, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Upgrades" unique_id=1423438684]
 layout_mode = 1

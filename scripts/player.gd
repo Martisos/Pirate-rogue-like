@@ -22,6 +22,7 @@ var can_move: bool = true
 @onready var exp_magnet: Area2D = $ExpMagnet
 @onready var direction: ColorRect = $"../Direction"
 @onready var camera: Camera2D = $Camera2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
@@ -89,8 +90,19 @@ func apply_unique_upgrades() -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	health_changed_signal.emit(health, max_health)
+	
+	camera.apply_screen_shake(12.5)
+	apply_hit_flash()
+	
 	if health <= 0:
 		die()
+
+func apply_hit_flash() -> void:
+	var tween = create_tween()
+	
+	sprite.modulate = Color(15.0, 15.0, 15.0)
+	
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 func die() -> void:
 	#there will be something

@@ -7,19 +7,12 @@ drawings:
 ---
 
 systems:
-	check your upgrades:
-		button to show your upgrades inside the card choosing sequence
-	
-	card choosing:
-		fix the problem with overlaying cards
-	
 	game over screen
 	
 	win condition? (like in megabonk?)
 	
 	timer
 	
-	Enemies can get debuffs
 	
 	enemy counter
 	
@@ -28,9 +21,9 @@ systems:
 	
 	
 	game feel:
-		hit flash
+		hit flash 
 		awesome boom effects
-		screen shake
+		screen shake V
 		particles:
 			cannonball
 			puddles showing while you sail
@@ -47,9 +40,9 @@ Main Menu:
 Upgrade cards:
 	magnet size V
 	camera zoom out V
-	enemies speed down
-	enemies bullet speed down
-	enemies shot speed down
+	enemies speed down V
+	enemies bullet speed down V
+	enemies shot speed down V
 
 AUDIO:
 	music:

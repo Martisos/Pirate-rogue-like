@@ -1,14 +1,20 @@
 extends Resource
 class_name UpgradeCard
 
-enum rarities {common, rare, epic, legendary}
+enum rarities {common, rare, epic, legendary, debuff}
 
 @export var title: String = "Upgrade Name"
 @export_multiline var description: String = "Upgrade description"
 @export var rarity: rarities = rarities.common
 @export var icon: Texture2D 
 
-@export_enum("speed", "damage", "max_health", "heal", "attack_speed", "add_cannon", "magnet_size", "camera_zoom") var upgrade_type: String = "speed"
+@export_enum(
+	"speed", "damage", "max_health",
+	"heal", "attack_speed", "add_cannon", 
+	"magnet_size", "camera_zoom",
+	"debuff_enemy_speed", "debuff_cannonball_speed",
+	"debuff_enemy_attack_speed"
+) var upgrade_type: String = "speed"
 
 @export var value: float = 1.0
 
@@ -34,7 +40,6 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 		"heal":
 			if player.health + int(value) > player.max_health:
 				player.health = player.max_health
-
 			else:
 				player.health += int(value)
 			player.health_changed_signal.emit(player.health, player.max_health)
@@ -51,3 +56,9 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 			print("player area multiplier:", player.magnet_area_size)
 		"camera_zoom":
 			player.camera_zoom / value
+		"debuff_enemy_speed":
+			EnemyDebuffs.speed_debuff_multiplier -= value
+		"debuff_cannonball_speed":
+			EnemyDebuffs.cannonball_speed_debuff_multiplier += value
+		"debuff_enemy_attack_speed":
+			EnemyDebuffs.attack_speed_debuff_multiplier += value
