@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cdqduuowew2d6"]
+
+[ext_resource type="Script" uid="uid://dtw6gyghusewj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=918059946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=823737330]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true
+
+[node name="ButtonsNode" type="Node" parent="." unique_id=1282524790]
+
+[node name="PLAY" type="Button" parent="ButtonsNode" unique_id=1020903872]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 100.0
+offset_top = 283.0
+offset_right = 400.0
+offset_bottom = 383.0
+text = "PLAY"
+
+[node name="SETTINGS" type="Button" parent="ButtonsNode" unique_id=1905105223]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 100.0
+offset_top = 397.0
+offset_right = 400.0
+offset_bottom = 497.0
+text = "SETTINGS"
