@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://dg8hfmgaw1u1u"]
+
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_6bmra"]
+[ext_resource type="Texture2D" uid="uid://b8ju75elwn0ri" path="res://resources/sprites/icons/heal.png" id="1_kkqd0"]
+
+[resource]
+script = ExtResource("1_6bmra")
+title = "HEAL III"
+description = "Heal 3 HP (or 45%)"
+rarity = 2
+icon = ExtResource("1_kkqd0")
+upgrade_type = "heal"
+value = 3.0
+value2 = 45.0
+metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

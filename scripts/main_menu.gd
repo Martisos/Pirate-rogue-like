@@ -1,9 +1,25 @@
 extends Control
 
-@onready var buttons_node: Node = $ButtonsNode
+@onready var buttons_node: Control = $ButtonsNode
+@onready var settings_bg: ColorRect = $SettingsBg
+@onready var settings_panel: VBoxContainer = $SettingsPanel
+
+@onready var camera_shake_check_box: CheckBox = $SettingsPanel/CameraShake/HBoxContainer/CameraShakeCheckBox
+@onready var water_enable_check_box: CheckBox = $SettingsPanel/WaterEnable/HBoxContainer/WaterEnableCheckBox
+
+
+
 
 func _ready() -> void:
 	if buttons_node != null:
+		
+		#-----------------
+		#-----------------
+		
+		
+		settings_bg.visible = false
+		settings_panel.visible = false
+		
 		var buttons = buttons_node.get_children()
 		for button in buttons:
 			button.modulate.a = 0.0
@@ -20,3 +36,28 @@ func _ready() -> void:
 			
 func _process(delta: float) -> void:
 	pass
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/world1.tscn")
+
+func _on_settings_pressed() -> void:
+	buttons_node.hide()
+	settings_bg.visible = true
+	settings_panel.visible = true
+
+
+func _on_button_pressed() -> void:
+	buttons_node.show()
+	settings_bg.visible = false
+	settings_panel.visible = false
+	_ready()
+
+
+func _on_camera_shake_check_box_toggled(toggled_on: bool) -> void:
+	print(toggled_on)
+	Options.camera_shake = toggled_on
+
+
+func _on_water_enable_check_box_toggled(toggled_on: bool) -> void:
+	print(toggled_on)
+	Options.water_enabled = toggled_on

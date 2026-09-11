@@ -21,9 +21,10 @@ var player = null
 # 0 - common; 1 - rare, 2 - epic, 3 - legendary
 const RARITY_WEIGHTS = {
 	0: 40.0,
-	1: 30.0,
-	2: 20.0,
-	3: 10.0
+	1: 25.0,
+	2: 15.0,
+	3: 5.0,
+	4: 15.0
 }
 
 func _ready() -> void:
@@ -53,6 +54,10 @@ func show_upgrades() -> void:
 	for upgrade in all_avaiable_upgrades:
 		if upgrade.upgrade_type == "heal" and player.health >= player.max_health:
 			continue
+			
+		if upgrade.one_time_use and upgrade in PlayerUpgrades.upgrades:
+			continue
+		
 		valid_upgrades.append(upgrade)
 	
 	# random upgrades

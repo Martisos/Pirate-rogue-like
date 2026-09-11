@@ -64,6 +64,8 @@ shape = SubResource("CapsuleShape2D_n4xme")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1929079162]
 
+[node name="ShootTimer" type="Timer" parent="ShootTimer" unique_id=2114822782]
+
 [node name="LeftCannon" type="Marker2D" parent="." unique_id=2010248053]
 position = Vector2(-16, -49)
 

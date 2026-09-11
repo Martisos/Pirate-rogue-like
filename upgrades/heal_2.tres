@@ -6,8 +6,10 @@
 [resource]
 script = ExtResource("1_fg6x8")
 title = "Heal II"
-description = "Heal 2 HP"
+description = "Heal 2 HP (or 25%)"
 rarity = 1
 icon = ExtResource("1_ap47y")
 upgrade_type = "heal"
+value = 2.0
+value2 = 25.0
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

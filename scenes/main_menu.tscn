@@ -11,16 +11,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="Background" type="ColorRect" parent="." unique_id=823737330]
+[node name="MenuBg" type="ColorRect" parent="." unique_id=823737330]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-metadata/_edit_lock_ = true
+color = Color(0.8980392, 0.8980392, 0.8980392, 1)
 
-[node name="ButtonsNode" type="Node" parent="." unique_id=1282524790]
+[node name="SettingsBg" type="ColorRect" parent="." unique_id=976658087]
+custom_minimum_size = Vector2(1050, 550)
+layout_mode = 0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 1101.0
+offset_bottom = 597.0
+color = Color(0.02745098, 0.003921569, 0.23921569, 1)
+
+[node name="ButtonsNode" type="Control" parent="." unique_id=1872793388]
+anchors_preset = 0
 
 [node name="PLAY" type="Button" parent="ButtonsNode" unique_id=1020903872]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 100.0
 offset_top = 283.0
 offset_right = 400.0
@@ -29,8 +40,107 @@ text = "PLAY"
 
 [node name="SETTINGS" type="Button" parent="ButtonsNode" unique_id=1905105223]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = 100.0
 offset_top = 397.0
 offset_right = 400.0
 offset_bottom = 497.0
 text = "SETTINGS"
+
+[node name="SettingsPanel" type="VBoxContainer" parent="." unique_id=832560338]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -252.0
+offset_right = 300.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraShake" type="Control" parent="SettingsPanel" unique_id=1048548951]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/CameraShake" unique_id=291728457]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CameraShakeLabel" type="Label" parent="SettingsPanel/CameraShake/HBoxContainer" unique_id=869872225]
+layout_mode = 2
+text = "Camera Shake"
+
+[node name="CameraShakeCheckBox" type="CheckBox" parent="SettingsPanel/CameraShake/HBoxContainer" unique_id=2110516388]
+layout_mode = 2
+button_pressed = true
+
+[node name="WaterEnable" type="Control" parent="SettingsPanel" unique_id=1537225850]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/WaterEnable" unique_id=1774814195]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WaterEnableLabel" type="Label" parent="SettingsPanel/WaterEnable/HBoxContainer" unique_id=850747921]
+layout_mode = 2
+text = "Water Enabled"
+
+[node name="WaterEnableCheckBox" type="CheckBox" parent="SettingsPanel/WaterEnable/HBoxContainer" unique_id=2042607265]
+layout_mode = 2
+button_pressed = true
+
+[node name="Music" type="Control" parent="SettingsPanel" unique_id=1477924413]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="SettingsPanel/Music" unique_id=1400597229]
+layout_mode = 0
+offset_right = 613.0
+offset_bottom = 43.0
+
+[node name="WaterEnableLabel" type="Label" parent="SettingsPanel/Music/HBoxContainer" unique_id=593438371]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicHSlider" type="HSlider" parent="SettingsPanel/Music/HBoxContainer" unique_id=1118228904]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Music2" type="Control" parent="SettingsPanel" unique_id=982245865]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="SettingsPanel/Music2" unique_id=1599764577]
+layout_mode = 0
+offset_right = 613.0
+offset_bottom = 43.0
+
+[node name="WaterEnableLabel" type="Label" parent="SettingsPanel/Music2/HBoxContainer" unique_id=680416378]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXHSlider" type="HSlider" parent="SettingsPanel/Music2/HBoxContainer" unique_id=1733928333]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="Button" type="Button" parent="SettingsPanel" unique_id=242772657]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="ButtonsNode/PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
+[connection signal="toggled" from="SettingsPanel/CameraShake/HBoxContainer/CameraShakeCheckBox" to="." method="_on_camera_shake_check_box_toggled"]
+[connection signal="toggled" from="SettingsPanel/WaterEnable/HBoxContainer/WaterEnableCheckBox" to="." method="_on_water_enable_check_box_toggled"]
+[connection signal="pressed" from="SettingsPanel/Button" to="." method="_on_button_pressed"]

@@ -7,7 +7,7 @@
 script = ExtResource("1_p1kgn")
 title = "Max Health"
 description = "+1 max health"
-rarity = 2
+rarity = 1
 icon = ExtResource("1_ptmsa")
 upgrade_type = "max_health"
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

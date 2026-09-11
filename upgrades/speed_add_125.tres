@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_73jcu")
 title = "Speed Up!"
-description = "+100 to speed of your ship"
+description = "+125 to speed of your ship"
 rarity = 3
 icon = ExtResource("1_2ul3a")
-value = 100.0
+value = 125.0
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

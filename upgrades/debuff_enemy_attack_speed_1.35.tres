@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://ddrwjfn7pq5dd"]
+
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_8j43b"]
+
+[resource]
+script = ExtResource("1_8j43b")
+title = "Reduced Coordination"
+description = "Increase enemy shooting cooldown by 1.35x"
+rarity = 4
+upgrade_type = "debuff_enemy_attack_speed"
+value = 1.35
+metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

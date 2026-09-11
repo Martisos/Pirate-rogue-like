@@ -11,7 +11,7 @@ systems:
 	
 	win condition? (like in megabonk?)
 	
-	timer
+	timer V
 	
 	
 	enemy counter
@@ -29,7 +29,7 @@ systems:
 			puddles showing while you sail
 
 
-Main Menu:
+Main Menu: V
 	Buttons:
 		play
 		options
@@ -51,3 +51,8 @@ AUDIO:
 	sfx:
 		explosion
 		getting hit
+
+
+colors:
+	white: #e5e5e5
+	blue: #07013d

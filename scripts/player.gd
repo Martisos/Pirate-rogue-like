@@ -105,10 +105,25 @@ func apply_hit_flash() -> void:
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 func die() -> void:
-	#there will be something
-	print("died, Your level: ", level)
+	
 	can_move = false
 	speed = 0.0
+	
+	$CollisionShape2D.set_deferred("disabled", true)
+	shoot_timer.stop()
+	
+	var death_tween = create_tween().set_parallel(true)
+	
+	death_tween.tween_property(sprite, "modulate", Color(0.0, 0.0, 0.0, 0.5), 2.5)
+	
+	death_tween.tween_property(camera, "zoom", Vector2(2.5, 2.5), 2.5).set_trans(Tween.TRANS_SINE)
+	
+	await death_tween.finished
+	
+	var game_over_ui = get_tree().current_scene.get_node_or_null("GameOverUI")
+	if game_over_ui != null:
+		game_over_ui.show_game_over(level)
+	
 	pass
 
 func _on_shoot_timer_timeout() -> void:
@@ -123,14 +138,14 @@ func _on_shoot_timer_timeout() -> void:
 		ball_left.shooter = self
 		get_tree().root.add_child(ball_left)
 		ball_left.global_position = left_cannon.global_position
-		ball_left.rotation = rotation - (PI / 2.0) #why radians are in godot brooooo
+		ball_left.rotation = rotation - (PI / 2.0)
 		ball_left.damage += bonus_damage
 		
 		var ball_right = cannonball_scene.instantiate()
 		ball_right.shooter = self
 		get_tree().root.add_child(ball_right)
 		ball_right.global_position = right_cannon.global_position
-		ball_right.rotation = rotation + (PI / 2.0) #why radians are still in godot brooooo
+		ball_right.rotation = rotation + (PI / 2.0)
 		ball_right.damage += bonus_damage
 
 func gain_exp(amount: int):
@@ -157,15 +172,3 @@ func process_next_level_up() -> void:
 		
 		if level_up_ui != null:
 			level_up_ui.show_upgrades()
-
-func level_up():
-	level += 1
-	current_exp -= exp_to_new_level
-	
-	print("level up: ", level)
-	
-	level_up_signal.emit(level)
-	exp_changed_signal.emit(current_exp, exp_to_new_level)
-	
-	if level_up_ui != null:
-		level_up_ui.show_upgrades()

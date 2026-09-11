@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://plhldwn75b82" path="res://scenes/player.tscn" id="1_6kdnw"]
 [ext_resource type="Shader" uid="uid://colkb0neufjse" path="res://shaders/waves.gdshader" id="1_eo7bd"]
+[ext_resource type="Script" uid="uid://d0fp1xfqdxtnr" path="res://scripts/world_1.gd" id="1_jsfht"]
 [ext_resource type="Texture2D" uid="uid://du0veyb6yyt63" path="res://resources/sprites/water.png" id="1_r56qy"]
 [ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="2_rp871"]
 [ext_resource type="Script" uid="uid://d3cr2jd2460us" path="res://scripts/enemy_spawner.gd" id="3_scryw"]
@@ -13,16 +14,31 @@
 [ext_resource type="Resource" uid="uid://f84tatvkv1fh" path="res://upgrades/speed_add_50.tres" id="8_2ifxk"]
 [ext_resource type="PackedScene" uid="uid://dqghf3fibrvwp" path="res://scenes/enemy_large.tscn" id="8_2jj1a"]
 [ext_resource type="Resource" uid="uid://cj0vpomtn23s0" path="res://upgrades/speed_add_75.tres" id="9_r56qy"]
-[ext_resource type="Resource" uid="uid://bd04c12q8fsf5" path="res://upgrades/speed_add_100.tres" id="10_eo7bd"]
+[ext_resource type="Resource" uid="uid://bd04c12q8fsf5" path="res://upgrades/speed_add_125.tres" id="10_eo7bd"]
 [ext_resource type="Resource" uid="uid://cod3w18hjwq16" path="res://upgrades/damage_add_1.tres" id="11_c2h5s"]
+[ext_resource type="Resource" uid="uid://dijeh3w4u7xqx" path="res://upgrades/attack_speed_1.5x.tres" id="12_iow5q"]
 [ext_resource type="Resource" uid="uid://b5lufmh4gmocf" path="res://upgrades/heal_1.tres" id="12_yeu16"]
 [ext_resource type="Resource" uid="uid://ccwcrmbe2xu4v" path="res://upgrades/heal_2.tres" id="13_2jj1a"]
 [ext_resource type="Resource" uid="uid://np08hlo7ndbg" path="res://upgrades/max_health_add_1.tres" id="14_ec51p"]
-[ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_3.tres" id="15_jsfht"]
+[ext_resource type="Resource" uid="uid://c00gjs2e31w5" path="res://upgrades/max_health_add_3.tres" id="15_jsfht"]
+[ext_resource type="Resource" uid="uid://cmi6uox3fuhc0" path="res://upgrades/camera_zoom1.1x.tres" id="15_lboj7"]
 [ext_resource type="Resource" uid="uid://brenop1adk854" path="res://upgrades/attack_speed_1.25x.tres" id="16_2ifxk"]
+[ext_resource type="Resource" uid="uid://ddcj7ova10g1a" path="res://upgrades/camera_zoom1.25x.tres" id="16_ix0es"]
+[ext_resource type="Resource" uid="uid://y6ptiau0gkuv" path="res://upgrades/camera_zoom1.50x.tres" id="17_oult3"]
 [ext_resource type="Resource" uid="uid://c240sjcox8ykd" path="res://upgrades/attack_speed_2x.tres" id="17_r56qy"]
+[ext_resource type="Resource" uid="uid://ddrwjfn7pq5dd" path="res://upgrades/debuff_enemy_attack_speed_1.35.tres" id="19_t45bm"]
+[ext_resource type="Resource" uid="uid://qia16emt81iu" path="res://upgrades/debuff_enemy_cannonball_speed_1.2.tres" id="20_eaxjv"]
+[ext_resource type="Resource" uid="uid://c4vmmcklbj2ju" path="res://upgrades/debuff_enemy_speed_1.25.tres" id="21_447er"]
 [ext_resource type="PackedScene" uid="uid://bdtryfugykwtn" path="res://scenes/player_ui.tscn" id="22_2jj1a"]
 [ext_resource type="PackedScene" uid="uid://c2cc2gctbtjcr" path="res://scenes/exp_drop.tscn" id="23_ec51p"]
+[ext_resource type="Resource" uid="uid://dg8hfmgaw1u1u" path="res://upgrades/heal_3.tres" id="24_kw764"]
+[ext_resource type="Resource" uid="uid://cllmjtmruyhh1" path="res://upgrades/heal_5.tres" id="25_jbfi8"]
+[ext_resource type="Resource" uid="uid://bc2c03uws075m" path="res://upgrades/magnet_size_x1.25.tres" id="26_a68wu"]
+[ext_resource type="Resource" uid="uid://d4iolhwj3pr0g" path="res://upgrades/magnet_size_x1.50.tres" id="27_qx5da"]
+[ext_resource type="Resource" uid="uid://b0mqhk4hign5k" path="res://upgrades/magnet_size_x1.75.tres" id="28_jaliw"]
+[ext_resource type="Resource" uid="uid://lkbsbi6wgio3" path="res://upgrades/magnet_size_x2.5.tres" id="29_ivkyo"]
+[ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_5.tres" id="32_ikmq3"]
+[ext_resource type="PackedScene" uid="uid://byev2fi5pws7b" path="res://scenes/game_over_ui.tscn" id="39_lboj7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r56qy"]
 shader = ExtResource("1_eo7bd")
@@ -38,6 +54,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-0.7213333, -0.3451111, -0.7537778, 2.498889, 2.5391111, 2.5102222, 2.5424445, -0.35311112), PackedVector2Array(-1586, -1312, -1463, 11078, 11255, 10976, 11085, -1299)])
 
 [node name="World" type="Node2D" unique_id=1181621573]
+script = ExtResource("1_jsfht")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1980016627]
 offset_right = 9000.0
@@ -67,7 +84,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="LevelUpUI" parent="." unique_id=1221979977 instance=ExtResource("5_x368c")]
-all_avaiable_upgrades = Array[ExtResource("6_ulrur")]([ExtResource("7_mjk3i"), ExtResource("8_2ifxk"), ExtResource("9_r56qy"), ExtResource("10_eo7bd"), ExtResource("11_c2h5s"), ExtResource("12_yeu16"), ExtResource("13_2jj1a"), ExtResource("14_ec51p"), ExtResource("15_jsfht"), ExtResource("16_2ifxk"), ExtResource("17_r56qy")])
+all_avaiable_upgrades = Array[ExtResource("6_ulrur")]([ExtResource("12_iow5q"), ExtResource("16_2ifxk"), ExtResource("17_r56qy"), ExtResource("15_lboj7"), ExtResource("16_ix0es"), ExtResource("17_oult3"), ExtResource("11_c2h5s"), ExtResource("19_t45bm"), ExtResource("20_eaxjv"), ExtResource("21_447er"), ExtResource("12_yeu16"), ExtResource("13_2jj1a"), ExtResource("24_kw764"), ExtResource("25_jbfi8"), ExtResource("26_a68wu"), ExtResource("27_qx5da"), ExtResource("28_jaliw"), ExtResource("29_ivkyo"), ExtResource("14_ec51p"), ExtResource("15_jsfht"), ExtResource("32_ikmq3"), ExtResource("7_mjk3i"), ExtResource("8_2ifxk"), ExtResource("9_r56qy"), ExtResource("10_eo7bd")])
 
 [node name="Direction" type="ColorRect" parent="." unique_id=2097659720]
 offset_left = -20.0
@@ -84,6 +101,8 @@ navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 [node name="ExpDrop" parent="." unique_id=823489768 instance=ExtResource("23_ec51p")]
 position = Vector2(5013, 4509)
 exp_amount = 15
+
+[node name="GameOverUI" parent="." unique_id=1992218001 instance=ExtResource("39_lboj7")]
 
 [connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
 [connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]

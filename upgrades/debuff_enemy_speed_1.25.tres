@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://c4vmmcklbj2ju"]
+
+[ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_gosyd"]
+[ext_resource type="Texture2D" uid="uid://0bl2oor585u" path="res://resources/sprites/icons/speed.png" id="1_gvegr"]
+
+[resource]
+script = ExtResource("1_gosyd")
+title = "Slow Down!"
+description = "Slow down the enemies by x1.25"
+rarity = 4
+icon = ExtResource("1_gvegr")
+upgrade_type = "debuff_enemy_speed"
+value = 1.25
+metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

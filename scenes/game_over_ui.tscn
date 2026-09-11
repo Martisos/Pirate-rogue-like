@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://byev2fi5pws7b"]
+
+[ext_resource type="Script" uid="uid://crlefj8fyr3g4" path="res://scripts/game_over_ui.gd" id="1_ovv0w"]
+
+[node name="GameOverUI" type="CanvasLayer" unique_id=1992218001]
+process_mode = 3
+script = ExtResource("1_ovv0w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1157642606]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=895403198]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="DeathMessageLabel" type="Label" parent="VBoxContainer" unique_id=1071979088]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You Died!"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="VBoxContainer" unique_id=164794055]
+layout_mode = 2
+text = "Your Level: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=978377932]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=839503197]
+layout_mode = 2
+text = "Play Again"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1417308400]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

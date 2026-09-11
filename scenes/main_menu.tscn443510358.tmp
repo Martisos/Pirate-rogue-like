@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cdqduuowew2d6"]
+
+[ext_resource type="Script" uid="uid://dtw6gyghusewj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=918059946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="SettingsBg" type="ColorRect" parent="." unique_id=976658087]
+visible = false
+custom_minimum_size = Vector2(1050, 550)
+layout_mode = 0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 1101.0
+offset_bottom = 597.0
+color = Color(0.8870107, 0.5126008, 0.7975872, 1)
+
+[node name="MenuBg" type="ColorRect" parent="." unique_id=823737330]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ButtonsNode" type="Control" parent="." unique_id=1872793388]
+anchors_preset = 0
+
+[node name="PLAY" type="Button" parent="ButtonsNode" unique_id=1020903872]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 283.0
+offset_right = 400.0
+offset_bottom = 383.0
+text = "PLAY"
+
+[node name="SETTINGS" type="Button" parent="ButtonsNode" unique_id=1905105223]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 397.0
+offset_right = 400.0
+offset_bottom = 497.0
+text = "SETTINGS"
+
+[node name="SettingsPanel" type="VBoxContainer" parent="." unique_id=832560338]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -252.0
+offset_right = 300.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Control" type="Control" parent="SettingsPanel" unique_id=1048548951]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsPanel/Control" unique_id=869872225]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="ButtonsNode/PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
