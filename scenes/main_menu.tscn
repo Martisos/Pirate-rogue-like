@@ -95,6 +95,22 @@ text = "Water Enabled"
 layout_mode = 2
 button_pressed = true
 
+[node name="Show Stats" type="Control" parent="SettingsPanel" unique_id=2018822011]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/Show Stats" unique_id=817145647]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShowStatsLabel" type="Label" parent="SettingsPanel/Show Stats/HBoxContainer" unique_id=2056653847]
+layout_mode = 2
+text = "Water Enabled"
+
+[node name="ShowStatsCheckBox" type="CheckBox" parent="SettingsPanel/Show Stats/HBoxContainer" unique_id=1030599459]
+layout_mode = 2
+
 [node name="Music" type="Control" parent="SettingsPanel" unique_id=1477924413]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -143,4 +159,5 @@ text = "BACK"
 [connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
 [connection signal="toggled" from="SettingsPanel/CameraShake/HBoxContainer/CameraShakeCheckBox" to="." method="_on_camera_shake_check_box_toggled"]
 [connection signal="toggled" from="SettingsPanel/WaterEnable/HBoxContainer/WaterEnableCheckBox" to="." method="_on_water_enable_check_box_toggled"]
+[connection signal="toggled" from="SettingsPanel/Show Stats/HBoxContainer/ShowStatsCheckBox" to="." method="_on_show_stats_check_box_toggled"]
 [connection signal="pressed" from="SettingsPanel/Button" to="." method="_on_button_pressed"]

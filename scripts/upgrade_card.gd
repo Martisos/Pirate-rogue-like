@@ -60,15 +60,15 @@ func apply_upgrade(player: CharacterBody2D) -> void:
 			#it for sure will work in future
 			print("totally added new cannon")
 		"magnet_size": #done
-			player.magnet_area_size += value
+			player.magnet_area_size *= value
 			player.apply_unique_upgrades()
 			print("player area multiplier:", player.magnet_area_size)
 		"camera_zoom":
 			player.camera_zoom = player.camera_zoom / value
 			player.apply_unique_upgrades()
 		"debuff_enemy_speed":
-			EnemyDebuffs.speed_debuff_multiplier -= value
+			EnemyDebuffs.speed_debuff_multiplier *= value
 		"debuff_cannonball_speed":
-			EnemyDebuffs.cannonball_speed_debuff_multiplier += value
+			EnemyDebuffs.cannonball_speed_debuff_multiplier *= value
 		"debuff_enemy_attack_speed":
-			EnemyDebuffs.attack_speed_debuff_multiplier += value
+			EnemyDebuffs.attack_speed_debuff_multiplier *= value

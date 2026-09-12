@@ -1,7 +1,8 @@
 drawings:
-	icons: magnet, shoot_cooldown
+	icons: magnet
 	cannonball: particle, 4 other variants
-	ships: mini, medium, large
+	ships: medium, large
+	card look: common, rare, epic, legendary
 	loot: mini, small, medium, large exp loots
 	water: larger image size so it does not look so goofy + try make it so i wont have to darken it
 ---

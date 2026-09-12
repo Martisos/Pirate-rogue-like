@@ -56,8 +56,13 @@ position = Vector2(0, -1)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2070347425]
 amount = 4
 speed_scale = 2.0
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_kb7tl")
+
+[node name="Timer" type="Timer" parent="." unique_id=1640343044]
+wait_time = 1.5
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

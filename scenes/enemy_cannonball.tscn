@@ -32,7 +32,7 @@ collision_layer = 8
 script = ExtResource("1_de1mn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264283198]
-modulate = Color(1, 0.05490196, 0.13333334, 1)
+modulate = Color(1, 0.5882353, 0.5882353, 1)
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.39411765, 0.39411765)
 texture = ExtResource("2_ju4ay")
@@ -43,7 +43,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
-color = Color(1, 0, 0, 1)
+color = Color(0.012617188, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1193087991]
 shape = SubResource("CircleShape2D_kb7tl")
@@ -54,7 +54,7 @@ position = Vector2(0, -1)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1957975761]
 amount = 4
 speed_scale = 2.0
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_ju4ay")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_8j43b")
 title = "Reduced Coordination"
-description = "Increase enemy shooting cooldown by 1.35x"
+description = "Increase enemy shooting cooldown by 35%"
 rarity = 4
 upgrade_type = "debuff_enemy_attack_speed"
-value = 1.35
+value = 0.65
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

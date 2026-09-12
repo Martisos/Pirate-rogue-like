@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_d4x5d")
 title = "Wind Manipulation"
-description = "Slow down enemy cannonballs by x1.2!"
+description = "Slow down enemy cannonballs by 20%"
 rarity = 4
 icon = ExtResource("1_rxcb3")
 upgrade_type = "debuff_cannonball_speed"
-value = 1.2
+value = 0.8
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

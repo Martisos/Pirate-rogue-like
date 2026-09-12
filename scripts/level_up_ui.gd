@@ -20,9 +20,9 @@ var player = null
 
 # 0 - common; 1 - rare, 2 - epic, 3 - legendary
 const RARITY_WEIGHTS = {
-	0: 40.0,
-	1: 25.0,
-	2: 15.0,
+	0: 50.0,
+	1: 20.0,
+	2: 10.0,
 	3: 5.0,
 	4: 15.0
 }

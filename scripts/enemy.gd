@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	var next_path_pos = nav_agent.get_next_path_position()
 	var direction_to_path = global_position.direction_to(next_path_pos)
 	
+	var current_turn_speed = turn_speed
 	
 	var target_angle = 0.0
 	
@@ -72,13 +73,16 @@ func _physics_process(delta: float) -> void:
 		choosen_side = ""
 		target_angle = direction_to_path.angle()
 		
-	rotation = lerp_angle(rotation, target_angle, turn_speed * delta)
+	rotation = lerp_angle(rotation, target_angle, current_turn_speed * delta)
 	
 	var intended_velocity = Vector2.ZERO
 	
 	if distance_to_player > attack_range:
 		
-		var current_speed = speed * EnemyDebuffs.speed_debuff_multiplier
+		var safe_speed_multiplier: float = max(0.25, EnemyDebuffs.speed_debuff_multiplier)
+		var current_speed = speed * safe_speed_multiplier
+		current_turn_speed = turn_speed * safe_speed_multiplier
+		
 		nav_agent.max_speed = current_speed
 		
 		intended_velocity = direction_to_path * current_speed

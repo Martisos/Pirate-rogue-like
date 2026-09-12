@@ -54,10 +54,12 @@ func _on_button_pressed() -> void:
 
 
 func _on_camera_shake_check_box_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
 	Options.camera_shake = toggled_on
 
 
 func _on_water_enable_check_box_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
 	Options.water_enabled = toggled_on
+
+
+func _on_show_stats_check_box_toggled(toggled_on: bool) -> void:
+	Options.show_stats = toggled_on

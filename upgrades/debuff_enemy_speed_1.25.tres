@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_gosyd")
 title = "Slow Down!"
-description = "Slow down the enemies by x1.25"
+description = "Slow down the enemies by 25%"
 rarity = 4
 icon = ExtResource("1_gvegr")
 upgrade_type = "debuff_enemy_speed"
-value = 1.25
+value = 0.75
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

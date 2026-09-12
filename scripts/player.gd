@@ -23,6 +23,7 @@ var can_move: bool = true
 @onready var direction: ColorRect = $"../Direction"
 @onready var camera: Camera2D = $Camera2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var stats: CanvasLayer = $Stats
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
@@ -50,6 +51,10 @@ func _ready() -> void:
 	shoot_timer.wait_time = shoot_cooldown
 	shoot_timer.start()
 	can_move = true
+	stats.hide()
+	
+	if Options.show_stats:
+		stats.show()
 
 func _input(event) -> void:
 	if event.is_action_pressed("click") and can_move:

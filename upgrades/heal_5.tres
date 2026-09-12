@@ -9,6 +9,7 @@ title = "HEAL V"
 description = "Heal 5 HP (or 75%) "
 rarity = 3
 icon = ExtResource("1_0vony")
+upgrade_type = "heal"
 value = 5.0
 value2 = 75.0
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"
