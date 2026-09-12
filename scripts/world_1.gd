@@ -8,4 +8,3 @@ func _ready() -> void:
 		parallax_2d.hide()
 	else:
 		parallax_2d.show()
-	pass # Replace with function body.

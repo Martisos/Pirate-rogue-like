@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ip8o0i2f5u1r"]
+
+[ext_resource type="Texture2D" uid="uid://dj8y6aad5l48y" path="res://resources/sprites/cards/card_epic.png" id="1_8enk3"]
+[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball.png" id="2_1ji66"]
+[ext_resource type="Script" uid="uid://dh2c41b8vpe80" path="res://scripts/upgrade_card_choose.gd" id="2_sd5fv"]
+
+[node name="UpgradeCardChoose" type="TextureButton" unique_id=1438307110]
+custom_minimum_size = Vector2(250, 350)
+custom_maximum_size = Vector2(250, 350)
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_8enk3")
+script = ExtResource("2_sd5fv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1231378628]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 17.0
+offset_right = 245.0
+offset_bottom = 102.0
+texture = ExtResource("2_1ji66")
+stretch_mode = 3
+
+[node name="Title" type="Label" parent="." unique_id=310369995]
+custom_minimum_size = Vector2(240, 82)
+custom_maximum_size = Vector2(240, 82)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 114.0
+offset_right = 245.0
+offset_bottom = 196.0
+theme_override_colors/font_color = Color(0.02745098, 0.003921569, 0.23921569, 1)
+theme_override_font_sizes/font_size = 28
+text = "TITLE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="." unique_id=377877454]
+custom_minimum_size = Vector2(174, 100)
+custom_maximum_size = Vector2(174, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -146.0
+offset_right = 87.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.02745098, 0.003921569, 0.23921569, 1)
+text = "Description"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

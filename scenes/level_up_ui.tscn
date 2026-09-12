@@ -11,6 +11,7 @@ script = ExtResource("1_0amag")
 all_avaiable_upgrades = Array[ExtResource("2_al3h0")]([ExtResource("3_4xqxv"), ExtResource("4_7l1e4")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1112322953]
+z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,33 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="Card1" type="Button" parent="HBoxContainer" unique_id=557728512]
-custom_minimum_size = Vector2(250, 350)
-custom_maximum_size = Vector2(250, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-autowrap_mode = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="Card2" type="Button" parent="HBoxContainer" unique_id=2041127775]
-custom_minimum_size = Vector2(250, 350)
-custom_maximum_size = Vector2(250, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-autowrap_mode = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
-
-[node name="Card3" type="Button" parent="HBoxContainer" unique_id=1973592170]
-custom_minimum_size = Vector2(250, 350)
-custom_maximum_size = Vector2(250, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-autowrap_mode = 3
-icon_alignment = 1
-vertical_icon_alignment = 0
 
 [node name="Upgrades" type="Control" parent="." unique_id=357679019]
 layout_mode = 3

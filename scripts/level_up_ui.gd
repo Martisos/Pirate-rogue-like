@@ -5,15 +5,21 @@ extends CanvasLayer
 @onready var button: Button = $Upgrades/Button
 @onready var owned_upgrades_container: VBoxContainer = $Upgrades/VBoxContainer/ScrollContainer/owned_upgrades_container
 @export var owned_item_scene: PackedScene = preload("uid://dt1e1s5ocrhwg")
+@export var card_scene: PackedScene = preload("uid://ip8o0i2f5u1r")
 
+@onready var cards_container: HBoxContainer = $HBoxContainer
+
+
+
+@export var rarity_backgrounds = {
+	UpgradeCard.rarities.common : preload("uid://bkaudtb81468c"),
+	UpgradeCard.rarities.rare : preload("uid://cgu65sdfw0kmr"),
+	UpgradeCard.rarities.epic : preload("uid://dj8y6aad5l48y"),
+	UpgradeCard.rarities.legendary : preload("uid://clark0if1gxo1")
+	#UpgradeCard.rarities.debuff : preload("uid://cgu65sdfw0kmr")
+}
 
 var upgrades_owned_menu_shown: bool = false
-
-@onready var card_buttons: Array[Button] = [
-	$HBoxContainer/Card1,
-	$HBoxContainer/Card2,
-	$HBoxContainer/Card3
-]
 
 var current_choices: Array[UpgradeCard] = []
 var player = null
@@ -29,15 +35,11 @@ const RARITY_WEIGHTS = {
 
 func _ready() -> void:
 	hide()
-	
-	for i in range(card_buttons.size()):
-		card_buttons[i].pressed.connect(_on_card_selected.bind(i))
 
 func show_upgrades() -> void:
 	
 	if upgrades_owned_menu_shown:
 		_on_button_mouse_entered()
-	
 	
 	var playersGroup = get_tree().get_nodes_in_group("player")
 	if playersGroup.size() > 0:
@@ -46,18 +48,13 @@ func show_upgrades() -> void:
 	if !player:
 		return
 	
-	for button in card_buttons:
-		button.hide()
 	
 	var valid_upgrades: Array[UpgradeCard] = []
-	
 	for upgrade in all_avaiable_upgrades:
 		if upgrade.upgrade_type == "heal" and player.health >= player.max_health:
 			continue
-			
 		if upgrade.one_time_use and upgrade in PlayerUpgrades.upgrades:
 			continue
-		
 		valid_upgrades.append(upgrade)
 	
 	# random upgrades
@@ -99,17 +96,24 @@ func show_upgrades() -> void:
 	show()
 	get_tree().paused = true
 	
-	for i in range(card_buttons.size()):
-		if i < current_choices.size():
-			await get_tree().create_timer(0.5).timeout
-			var card = current_choices[i]
-			card_buttons[i].show()
-			card_buttons[i].text = card.title + "\n\n" + card.description
-			
-			card_buttons[i].icon = card.icon
-		else:
-			card_buttons[i].hide()
+	for child  in cards_container.get_children():
+		child.queue_free()
+	
+	for card in current_choices:
+		await get_tree().create_timer(0.2).timeout
+		
+		var new_card = card_scene.instantiate()
+		cards_container.add_child(new_card)
+		
+		var bg_texture: Texture2D = rarity_backgrounds.get(card.rarity, null)
+		new_card.setup(card, bg_texture)
+		
+		new_card.card_selected.connect(_on_custom_card_selected)
 
+func _on_custom_card_selected(card_data: UpgradeCard) -> void:
+	var index = current_choices.find(card_data)
+	if index != -1:
+		_on_card_selected(index)
 
 func _on_card_selected(index: int) -> void:
 	var selected_upgrade: UpgradeCard = current_choices[index]
