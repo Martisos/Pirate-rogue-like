@@ -15,8 +15,8 @@ extends CanvasLayer
 	UpgradeCard.rarities.common : preload("uid://bkaudtb81468c"),
 	UpgradeCard.rarities.rare : preload("uid://cgu65sdfw0kmr"),
 	UpgradeCard.rarities.epic : preload("uid://dj8y6aad5l48y"),
-	UpgradeCard.rarities.legendary : preload("uid://clark0if1gxo1")
-	#UpgradeCard.rarities.debuff : preload("uid://cgu65sdfw0kmr")
+	UpgradeCard.rarities.legendary : preload("uid://clark0if1gxo1"),
+	UpgradeCard.rarities.debuff : preload("uid://c1hwh5823g2sd")
 }
 
 var upgrades_owned_menu_shown: bool = false

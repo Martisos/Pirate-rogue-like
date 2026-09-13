@@ -37,7 +37,7 @@ func _on_timer_timeout() -> void:
 	
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 0.5), 0.5)
-	tween.tween_property(self, "scale", Vector2(0.1, 0.1), 1.5)
+	tween.tween_property(self, "scale", Vector2(0.1, 0.1), 0.7)
 	await tween.finished
 	
 	queue_free()

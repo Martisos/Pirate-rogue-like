@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ric7e65h2vtx"]
 
 [ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="1_hah70"]
+[ext_resource type="Texture2D" uid="uid://bs67lc5u22iku" path="res://resources/sprites/enemy_medium.png" id="2_d46ww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d46ww"]
-size = Vector2(193.5, 128)
+size = Vector2(264, 104)
 
 [node name="Enemy" unique_id=992288199 instance=ExtResource("1_hah70")]
 speed = 250.0
@@ -13,20 +14,20 @@ turn_speed = 3.0
 exp_amount = 2
 
 [node name="Sprite2D" parent="." index="0" unique_id=403356201]
-scale = Vector2(1.5, 1)
+texture = ExtResource("2_d46ww")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=737062971]
-position = Vector2(0.75, 0)
+position = Vector2(-13, 0)
 shape = SubResource("RectangleShape2D_d46ww")
 
 [node name="Lcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=1025338011]
-position = Vector2(25, -64)
+position = Vector2(27, -55)
 
 [node name="Rcanon2" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=805956275]
-position = Vector2(25, 64)
+position = Vector2(27, 56)
 
 [node name="Lcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="2" unique_id=1922231043]
-position = Vector2(-35, -64)
+position = Vector2(-27, -58)
 
 [node name="Rcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="3" unique_id=133429331]
-position = Vector2(-35, 64)
+position = Vector2(-26, 57)

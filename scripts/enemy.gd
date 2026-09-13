@@ -131,7 +131,7 @@ func shoot() -> void:
 				ball.rotation = rotation
 				ball.speed = ball.speed * EnemyDebuffs.cannonball_speed_debuff_multiplier
 			
-		shoot_cooldown.start(attack_cooldown * EnemyDebuffs.attack_speed_debuff_multiplier)
+		shoot_cooldown.start(attack_cooldown / EnemyDebuffs.attack_speed_debuff_multiplier)
 
 
 func take_damage(amount: int) -> void:
