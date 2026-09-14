@@ -128,4 +128,7 @@ autoplay = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExpMagnet" unique_id=182571498 groups=["exp_magnet"]]
 shape = SubResource("CircleShape2D_kb7tl")
 
+[node name="hit_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1491126612]
+bus = &"SFX"
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

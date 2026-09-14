@@ -24,6 +24,7 @@ var can_move: bool = true
 @onready var camera: Camera2D = $Camera2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var stats: CanvasLayer = $Stats
+@onready var hit_sfx: AudioStreamPlayer2D = $hit_sfx
 
 
 @onready var left_cannon: Marker2D = $LeftCannon
@@ -95,6 +96,8 @@ func apply_unique_upgrades() -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	health_changed_signal.emit(health, max_health)
+	
+	hit_sfx.play()
 	
 	camera.apply_screen_shake(12.5)
 	apply_hit_flash()

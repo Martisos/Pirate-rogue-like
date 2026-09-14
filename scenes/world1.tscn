@@ -39,6 +39,7 @@
 [ext_resource type="Resource" uid="uid://lkbsbi6wgio3" path="res://upgrades/magnet_size_x2.0.tres" id="29_ivkyo"]
 [ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_5.tres" id="32_ikmq3"]
 [ext_resource type="PackedScene" uid="uid://byev2fi5pws7b" path="res://scenes/game_over_ui.tscn" id="39_lboj7"]
+[ext_resource type="PackedScene" uid="uid://bbq67p4ttrrsu" path="res://scenes/sound_manager.tscn" id="40_ix0es"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r56qy"]
 shader = ExtResource("1_eo7bd")
@@ -103,6 +104,8 @@ position = Vector2(5013, 4509)
 exp_amount = 15
 
 [node name="GameOverUI" parent="." unique_id=1992218001 instance=ExtResource("39_lboj7")]
+
+[node name="SoundManager" parent="." unique_id=1638331045 instance=ExtResource("40_ix0es")]
 
 [connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
 [connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]

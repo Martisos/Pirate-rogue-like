@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdqduuowew2d6"]
 
 [ext_resource type="Script" uid="uid://dtw6gyghusewj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bbq67p4ttrrsu" path="res://scenes/sound_manager.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control" unique_id=918059946]
 layout_mode = 3
@@ -155,9 +156,13 @@ value = 100.0
 layout_mode = 2
 text = "BACK"
 
+[node name="SoundManager" parent="." unique_id=1638331045 instance=ExtResource("2_ekxnf")]
+
 [connection signal="pressed" from="ButtonsNode/PLAY" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
 [connection signal="toggled" from="SettingsPanel/CameraShake/HBoxContainer/CameraShakeCheckBox" to="." method="_on_camera_shake_check_box_toggled"]
 [connection signal="toggled" from="SettingsPanel/WaterEnable/HBoxContainer/WaterEnableCheckBox" to="." method="_on_water_enable_check_box_toggled"]
 [connection signal="toggled" from="SettingsPanel/Show Stats/HBoxContainer/ShowStatsCheckBox" to="." method="_on_show_stats_check_box_toggled"]
+[connection signal="value_changed" from="SettingsPanel/Music/HBoxContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/Music2/HBoxContainer/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
 [connection signal="pressed" from="SettingsPanel/Button" to="." method="_on_button_pressed"]

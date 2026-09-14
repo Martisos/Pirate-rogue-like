@@ -6,17 +6,19 @@ extends Control
 
 @onready var camera_shake_check_box: CheckBox = $SettingsPanel/CameraShake/HBoxContainer/CameraShakeCheckBox
 @onready var water_enable_check_box: CheckBox = $SettingsPanel/WaterEnable/HBoxContainer/WaterEnableCheckBox
-
+@onready var sound_manager: Node = $SoundManager
+@onready var music_h_slider: HSlider = $SettingsPanel/Music/HBoxContainer/MusicHSlider
+@onready var sfxh_slider: HSlider = $SettingsPanel/Music2/HBoxContainer/SFXHSlider
 
 
 
 func _ready() -> void:
+	music_h_slider.value = Options.music_volume
+	sfxh_slider.value = Options.sfx_volume
+	
+	$SoundManager.play_menu_music()
+	
 	if buttons_node != null:
-		
-		#-----------------
-		#-----------------
-		
-		
 		settings_bg.visible = false
 		settings_panel.visible = false
 		
@@ -63,3 +65,19 @@ func _on_water_enable_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_show_stats_check_box_toggled(toggled_on: bool) -> void:
 	Options.show_stats = toggled_on
+
+#music
+func _on_music_h_slider_value_changed(value: float) -> void:
+	sound_manager.set_music_volume(linear_to_db(value))
+	Options.music_volume = value
+
+
+func _on_sfxh_slider_value_changed(value: float) -> void:
+	var bus_index = AudioServer.get_bus_index("SFX")
+	Options.sfx_volume = value
+	
+	if value == 0:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))

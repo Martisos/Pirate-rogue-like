@@ -10,6 +10,9 @@ extends CharacterBody2D
 @export var exp_amount : int = 1
 @onready var sprite: Sprite2D = $Sprite2D
 
+var explosion_sound
+var hit_sound
+
 var health: int
 var player = null
 var can_shoot: bool = true
@@ -136,6 +139,16 @@ func shoot() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	
+	var sound_node = AudioStreamPlayer2D.new()
+	sound_node.bus = "SFX"
+	sound_node.stream = hit_sound
+	sound_node.global_position = global_position
+	get_tree().current_scene.add_child(sound_node)
+	sound_node.play()
+	
+	sound_node.finished.connect(sound_node.queue_free)
+	
 	if health <= 0:
 		die()
 
@@ -148,7 +161,6 @@ func apply_hit_flash() -> void:
 
 
 func die():
-	#fancy something after enemy dies
 	if exp_drop != null:
 		var drop = exp_drop.instantiate()
 		get_tree().current_scene.call_deferred("add_child", drop)
