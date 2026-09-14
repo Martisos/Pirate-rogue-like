@@ -47,8 +47,8 @@ Upgrade cards:
 
 AUDIO:
 	music:
-		main menu
-		battle
+		main menu -
+		battle - https://sonatina.itch.io/infinity-crystal (34 / 48 -> https://sonatina.itch.io/infinity-crystal)
 	sfx:
 		explosion
 		getting hit

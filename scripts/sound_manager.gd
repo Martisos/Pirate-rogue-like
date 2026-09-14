@@ -2,12 +2,12 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
-var menu_music
-var battle_music
+var menu_music = preload("res://resources/sound/music/menu.wav")
+var battle_music = preload("res://resources/sound/music/battle.wav")
 
 func play_menu_music() -> void:
 	if music_player.stream != menu_music:
-		music_player.stram = menu_music
+		music_player.stream = menu_music
 		music_player.play()
 
 func play_battle_music() -> void:
