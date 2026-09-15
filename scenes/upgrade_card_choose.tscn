@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dh2c41b8vpe80" path="res://scripts/upgrade_card_choose.gd" id="2_sd5fv"]
 
 [node name="UpgradeCardChoose" type="TextureButton" unique_id=1438307110]
+visible = false
 custom_minimum_size = Vector2(250, 350)
 custom_maximum_size = Vector2(250, 350)
 offset_right = 40.0

@@ -38,6 +38,9 @@ func _ready() -> void:
 
 func show_upgrades() -> void:
 	
+	for child in cards_container.get_children():
+		child.queue_free()
+	
 	if upgrades_owned_menu_shown:
 		_on_button_mouse_entered()
 	
