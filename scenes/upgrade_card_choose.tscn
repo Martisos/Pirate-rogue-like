@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://ip8o0i2f5u1r"]
 
 [ext_resource type="Texture2D" uid="uid://dj8y6aad5l48y" path="res://resources/sprites/cards/card_epic.png" id="1_8enk3"]
+[ext_resource type="Shader" uid="uid://b0goaehd05u7q" path="res://shaders/item_highlight.gdshader" id="1_sd5fv"]
 [ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball.png" id="2_1ji66"]
 [ext_resource type="Script" uid="uid://dh2c41b8vpe80" path="res://scripts/upgrade_card_choose.gd" id="2_sd5fv"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sd5fv"]
+shader = ExtResource("1_sd5fv")
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/frequency = 0.35
+shader_parameter/highlight_speed = 6.0
+shader_parameter/highlight_width = 15.0
+
 [node name="UpgradeCardChoose" type="TextureButton" unique_id=1438307110]
 visible = false
+material = SubResource("ShaderMaterial_sd5fv")
 custom_minimum_size = Vector2(250, 350)
 custom_maximum_size = Vector2(250, 350)
 offset_right = 40.0

@@ -37,7 +37,6 @@ func _ready() -> void:
 	hide()
 
 func show_upgrades() -> void:
-	
 	for child in cards_container.get_children():
 		child.queue_free()
 	
@@ -50,7 +49,6 @@ func show_upgrades() -> void:
 	
 	if !player:
 		return
-	
 	
 	var valid_upgrades: Array[UpgradeCard] = []
 	for upgrade in all_avaiable_upgrades:
@@ -89,30 +87,31 @@ func show_upgrades() -> void:
 				cards_of_chosen_rarity.append(card)
 		
 		var picked_card = cards_of_chosen_rarity.pick_random()
-		
-		print(picked_card.rarity, " ", picked_card.title)
 		current_choices.append(picked_card)
-		
 		valid_upgrades.erase(picked_card)
 		
-		
+	
 	show()
 	get_tree().paused = true
 	
-	for child  in cards_container.get_children():
-		child.queue_free()
-	
 	for card in current_choices:
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.2, true, false, true).timeout
 		
 		var new_card = card_scene.instantiate()
+		
+		new_card.visible = false
+		new_card.modulate.a = 0.0
+		new_card.scale = Vector2.ZERO
+		
 		cards_container.add_child(new_card)
 		
 		var bg_texture: Texture2D = rarity_backgrounds.get(card.rarity, null)
 		new_card.setup(card, bg_texture)
 		
 		new_card.card_selected.connect(_on_custom_card_selected)
-
+	show()
+	get_tree().paused = true
+	
 func _on_custom_card_selected(card_data: UpgradeCard) -> void:
 	var index = current_choices.find(card_data)
 	if index != -1:
@@ -135,12 +134,14 @@ func _on_card_selected(index: int) -> void:
 
 func update_owned_upgrades_display():
 	for child in owned_upgrades_container.get_children():
-		child.queue_free()
+		child.free()
 	
 	for card in PlayerUpgrades.upgrades:
 		if owned_item_scene != null:
 			var item_node = owned_item_scene.instantiate()
+
 			owned_upgrades_container.add_child(item_node)
+			item_node.visible = false
 			
 			if item_node.has_method("setup"):
 				print("added child '", card.title, "' and setup!")

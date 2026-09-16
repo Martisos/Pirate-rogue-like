@@ -17,6 +17,8 @@ enum rarities {common, rare, epic, legendary, debuff}
 	"debuff_enemy_attack_speed"
 ) var upgrade_type: String = "speed"
 
+
+
 @export var value: float = 1.0
 @export var value2: float = 1.0
 
