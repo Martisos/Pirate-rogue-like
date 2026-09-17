@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_gxnqw")
 title = "Higher EXP Range"
-description = "Grab EXP from further ranges! (100%)"
+description = "Grab EXP from further ranges! (50%)"
 rarity = 3
 upgrade_type = "magnet_size"
-value = 2.0
+value = 1.75
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

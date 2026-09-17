@@ -9,7 +9,8 @@ size = Vector2(264, 104)
 [node name="Enemy" unique_id=992288199 instance=ExtResource("1_hah70")]
 speed = 250.0
 max_health = 4
-attack_cooldown = 1.0
+attack_range = 550.0
+attack_cooldown = 1.5
 turn_speed = 3.0
 exp_amount = 2
 

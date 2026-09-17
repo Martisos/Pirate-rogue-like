@@ -7,7 +7,8 @@
 size = Vector2(172, 62)
 
 [node name="EnemySmall" unique_id=992288199 instance=ExtResource("1_7o7px")]
-max_health = 1
+max_health = 2
+attack_range = 500.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=403356201]
 texture = ExtResource("2_yj0y0")

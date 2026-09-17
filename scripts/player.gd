@@ -30,17 +30,17 @@ var can_move: bool = true
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
 
-var max_health: int = 6
+var max_health: int = 3
 var health: int = 3
 
-var shoot_cooldown: float = 0.2
-var bonus_damage: int = 5
+var shoot_cooldown: float = 1
+var bonus_damage: int = 0
 
 var camera_zoom: float = 0.7
 
 var level: int = 1
 var current_exp: int = 0
-var exp_to_new_level: int = 1
+var exp_to_new_level: int = 3
 var pending_level_ups: int = 0
 
 var magnet_area_size: float = 1.0
