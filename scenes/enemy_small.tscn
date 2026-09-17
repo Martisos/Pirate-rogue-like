@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cv3ur5lepmyeu"]
+
+[ext_resource type="PackedScene" uid="uid://dwqjqohfahwf7" path="res://scenes/enemy.tscn" id="1_7o7px"]
+
+[node name="Enemy" unique_id=992288199 instance=ExtResource("1_7o7px")]
+turn_speed = 1.25
+
+[node name="Lcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="0" unique_id=306829802]
+position = Vector2(-16, -44)
+
+[node name="Rcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=1073628370]
+position = Vector2(-15, 40)

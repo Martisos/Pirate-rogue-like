@@ -161,7 +161,7 @@ func gain_exp(amount: int):
 	print(current_exp, " ", amount)
 	while current_exp >= exp_to_new_level:
 		current_exp -= exp_to_new_level
-		exp_to_new_level = int(exp_to_new_level * 1.4)
+		exp_to_new_level = int(exp_to_new_level * 1.3)
 		level += 1
 		pending_level_ups += 1
 		print("level_ups in queue: ", pending_level_ups)

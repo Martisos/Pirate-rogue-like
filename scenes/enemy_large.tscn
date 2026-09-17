@@ -8,7 +8,8 @@ size = Vector2(288, 160)
 [node name="Enemy" unique_id=992288199 instance=ExtResource("1_cvi43")]
 speed = 300.0
 max_health = 7
-turn_speed = 3.0
+attack_range = 650.0
+turn_speed = 1.0
 exp_amount = 3
 
 [node name="Sprite2D" parent="." index="0" unique_id=403356201]

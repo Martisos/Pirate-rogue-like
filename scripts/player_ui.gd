@@ -26,6 +26,11 @@ func _ready() -> void:
 	
 	exp_bar.max_value = player.exp_to_new_level
 	exp_bar.value = player.current_exp
+	timer_label.hide()
+	
+	if Options.show_stats:
+		timer_label.show()
+		timer.stop()
 
 func _process(delta: float) -> void:
 	time_survived += delta
