@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtw6gyghusewj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://bbq67p4ttrrsu" path="res://scenes/sound_manager.tscn" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://0o7a524jxx0m" path="res://resources/sprites/menu_water.png" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=918059946]
 layout_mode = 3
@@ -33,19 +34,19 @@ anchors_preset = 0
 [node name="PLAY" type="Button" parent="ButtonsNode" unique_id=1020903872]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 100.0
-offset_top = 283.0
-offset_right = 400.0
-offset_bottom = 383.0
+offset_left = 33.0
+offset_top = 222.0
+offset_right = 333.0
+offset_bottom = 322.0
 text = "PLAY"
 
 [node name="SETTINGS" type="Button" parent="ButtonsNode" unique_id=1905105223]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 100.0
-offset_top = 397.0
-offset_right = 400.0
-offset_bottom = 497.0
+offset_left = 33.0
+offset_top = 336.0
+offset_right = 333.0
+offset_bottom = 436.0
 text = "SETTINGS"
 
 [node name="SettingsPanel" type="VBoxContainer" parent="." unique_id=832560338]
@@ -107,7 +108,7 @@ offset_bottom = 40.0
 
 [node name="ShowStatsLabel" type="Label" parent="SettingsPanel/Show Stats/HBoxContainer" unique_id=2056653847]
 layout_mode = 2
-text = "Water Enabled"
+text = "Water Disabled"
 
 [node name="ShowStatsCheckBox" type="CheckBox" parent="SettingsPanel/Show Stats/HBoxContainer" unique_id=1030599459]
 layout_mode = 2
@@ -130,7 +131,9 @@ text = "Music Volume"
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 4
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Music2" type="Control" parent="SettingsPanel" unique_id=982245865]
 custom_minimum_size = Vector2(0, 50)
@@ -150,13 +153,47 @@ text = "SFX Volume"
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 4
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Button" type="Button" parent="SettingsPanel" unique_id=242772657]
 layout_mode = 2
 text = "BACK"
 
 [node name="SoundManager" parent="." unique_id=1638331045 instance=ExtResource("2_ekxnf")]
+
+[node name="Paralaxes" type="Node" parent="." unique_id=2145011839]
+
+[node name="Water1" type="Parallax2D" parent="Paralaxes" unique_id=156015046]
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralaxes/Water1" unique_id=1638666161]
+position = Vector2(250, 773)
+texture = ExtResource("3_bqqt6")
+
+[node name="Water2" type="Parallax2D" parent="Paralaxes" unique_id=224189090]
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(66, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralaxes/Water2" unique_id=1371163760]
+modulate = Color(1, 1, 1, 0.7490196)
+position = Vector2(381, 745)
+texture = ExtResource("3_bqqt6")
+
+[node name="Water3" type="Parallax2D" parent="Paralaxes" unique_id=1642827403]
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(88, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralaxes/Water3" unique_id=677325816]
+modulate = Color(1, 1, 1, 0.7490196)
+self_modulate = Color(1, 1, 1, 0.4745098)
+position = Vector2(533, 748)
+texture = ExtResource("3_bqqt6")
 
 [connection signal="pressed" from="ButtonsNode/PLAY" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
