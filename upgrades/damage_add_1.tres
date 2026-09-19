@@ -9,5 +9,6 @@ title = "Damage up!"
 description = "x2 Damage!"
 rarity = 2
 icon = ExtResource("1_ud4jh")
+one_time_use = true
 upgrade_type = "damage"
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

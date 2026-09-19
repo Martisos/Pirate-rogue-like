@@ -10,6 +10,7 @@ extends Control
 @onready var music_h_slider: HSlider = $SettingsPanel/Music/HBoxContainer/MusicHSlider
 @onready var sfxh_slider: HSlider = $SettingsPanel/Music2/HBoxContainer/SFXHSlider
 @onready var paralaxes: Node = $Paralaxes
+@onready var color_rect_water: ColorRect = $ColorRect
 
 
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	
 	$SoundManager.play_menu_music()
 	
+	
 	var paralaxCounter = 0
 	for paralax in paralaxes.get_children():
 		var sprite = paralax.get_node_or_null("Sprite2D")
@@ -27,18 +29,14 @@ func _ready() -> void:
 		if paralaxCounter == 1:
 			sprite.position = Vector2(381.0, 745.0)
 		else:
-			sprite.position = Vector2(533.0, 748.0)
-		paralaxCounter += 1
-
-	for paralax in paralaxes.get_children():
-		var sprite = paralax.get_node_or_null("Sprite2D")
+			sprite.position = Vector2(533.0, 740.0)
 		
-		if sprite != null:
-			var paralax_tween = create_tween().set_parallel(true)
-			paralax_tween.tween_property(sprite, "position:y", sprite.position.y - 200, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-			print(sprite.position)
-
+		paralaxCounter += 1
+		
+	if color_rect_water != null:
+		color_rect_water.position = Vector2(-10.0, 898.0)
+		color_rect_water.visible = true
+		
 	if buttons_node != null:
 		settings_bg.visible = false
 		settings_panel.visible = false
@@ -47,16 +45,45 @@ func _ready() -> void:
 		for button in buttons:
 			button.modulate.a = 0.0
 			button.position.x -= 600
-	
-		for button in buttons:
-			var tween = create_tween().set_parallel(true)
+		
+		var current_index = 0
+		print(color_rect_water.position)
+		for paralax in paralaxes.get_children():
+			var sprite = paralax.get_node_or_null("Sprite2D")
 			
-			tween.tween_property(button, "modulate:a", 1.0, 0.5)
 			
-			tween.tween_property(button, "position:x", button.position.x + 600, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			
-			await get_tree().create_timer(0.15).timeout
-			
+			if sprite != null:
+				var paralax_tween = create_tween().set_parallel(true)
+				paralax_tween.tween_property(sprite, "position:y", sprite.position.y - 200, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+				
+				if current_index == 0 and color_rect_water != null:
+					print(color_rect_water.position)
+					paralax_tween.tween_property(color_rect_water, "position:y", color_rect_water.position.y - 200, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+				
+				await get_tree().create_timer(0.7).timeout
+				current_index += 1
+				
+				if current_index == 3:
+					_animate_ship()
+					await get_tree().create_timer(2.8).timeout
+					_animate_buttons()
+					
+		print(color_rect_water.position)
+		print(color_rect_water.global_position)
+		
+
+func _animate_buttons() -> void:
+	var buttons = buttons_node.get_children()
+	for button in buttons:
+		var tween = create_tween().set_parallel(true)
+		
+		tween.tween_property(button, "modulate:a", 1.0, 0.5)
+		
+		tween.tween_property(button, "position:x", button.position.x + 600, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		
+
+func _animate_ship() -> void:
+	pass
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/world1.tscn")
