@@ -10,7 +10,7 @@ extends Control
 @onready var music_h_slider: HSlider = $SettingsPanel/Music/HBoxContainer/MusicHSlider
 @onready var sfxh_slider: HSlider = $SettingsPanel/Music2/HBoxContainer/SFXHSlider
 @onready var paralaxes: Node = $Paralaxes
-@onready var color_rect_water: ColorRect = $ColorRect
+@onready var color_rect_water: Sprite2D = $"Water-additional/Sprite2D"
 
 
 
@@ -25,16 +25,17 @@ func _ready() -> void:
 	for paralax in paralaxes.get_children():
 		var sprite = paralax.get_node_or_null("Sprite2D")
 		if paralaxCounter == 0:
-			sprite.position = Vector2(250.0, 773.0)
-		if paralaxCounter == 1:
+			sprite.position = Vector2(250.0, 760.0)
+		elif paralaxCounter == 1:
 			sprite.position = Vector2(381.0, 745.0)
 		else:
-			sprite.position = Vector2(533.0, 740.0)
+			sprite.position = Vector2(533.0, 730.0)
 		
 		paralaxCounter += 1
 		
 	if color_rect_water != null:
-		color_rect_water.position = Vector2(-10.0, 898.0)
+		color_rect_water.position = Vector2(251, 1071)
+
 		color_rect_water.visible = true
 		
 	if buttons_node != null:

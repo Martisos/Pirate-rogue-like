@@ -192,16 +192,19 @@ repeat_times = 10
 [node name="Sprite2D" type="Sprite2D" parent="Paralaxes/Water3" unique_id=677325816]
 modulate = Color(1, 1, 1, 0.7490196)
 self_modulate = Color(1, 1, 1, 0.4745098)
-position = Vector2(533, 748)
+position = Vector2(533, 740)
 texture = ExtResource("3_bqqt6")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=754881452]
-layout_mode = 0
-offset_left = -8356.0
-offset_top = -10231.0
-offset_right = 8992.0
-offset_bottom = 7041.0
-color = Color(0.9607843, 0.003921569, 0.23921569, 1)
+[node name="Water-additional" type="Parallax2D" parent="." unique_id=423064391]
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(50, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Water-additional" unique_id=539904080]
+position = Vector2(250, 1101)
+scale = Vector2(1, 2)
+texture = ExtResource("3_bqqt6")
+flip_v = true
 
 [connection signal="pressed" from="ButtonsNode/PLAY" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonsNode/SETTINGS" to="." method="_on_settings_pressed"]
