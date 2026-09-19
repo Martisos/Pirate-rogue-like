@@ -12,6 +12,14 @@ extends Control
 @onready var paralaxes: Node = $Paralaxes
 @onready var color_rect_water: Sprite2D = $"Water-additional/Sprite2D"
 
+@onready var water_additional: Parallax2D = $"Water-additional"
+
+@onready var sprite_ship: Sprite2D = $Node2D/Sprite2D
+
+var is_floating: bool = false
+var time_passed: float = 0.0
+var initial_ship_y: float = 0.0
+var initial_ship_rot: float = 0.0
 
 
 func _ready() -> void:
@@ -33,9 +41,11 @@ func _ready() -> void:
 		
 		paralaxCounter += 1
 		
+	if sprite_ship != null:
+		sprite_ship.global_position = Vector2(1475, 402)
+	
 	if color_rect_water != null:
 		color_rect_water.position = Vector2(251, 1071)
-
 		color_rect_water.visible = true
 		
 	if buttons_node != null:
@@ -48,7 +58,6 @@ func _ready() -> void:
 			button.position.x -= 600
 		
 		var current_index = 0
-		print(color_rect_water.position)
 		for paralax in paralaxes.get_children():
 			var sprite = paralax.get_node_or_null("Sprite2D")
 			
@@ -58,7 +67,6 @@ func _ready() -> void:
 				paralax_tween.tween_property(sprite, "position:y", sprite.position.y - 200, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 				
 				if current_index == 0 and color_rect_water != null:
-					print(color_rect_water.position)
 					paralax_tween.tween_property(color_rect_water, "position:y", color_rect_water.position.y - 200, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 				
 				await get_tree().create_timer(0.7).timeout
@@ -68,10 +76,14 @@ func _ready() -> void:
 					_animate_ship()
 					await get_tree().create_timer(2.8).timeout
 					_animate_buttons()
-					
-		print(color_rect_water.position)
-		print(color_rect_water.global_position)
+
+func _process(delta: float) -> void:
+	if is_floating and sprite_ship != null:
+		time_passed += delta * 1.0
 		
+		sprite_ship.position.y = initial_ship_y + sin(time_passed) * 15.0 #15 pixels
+		
+		sprite_ship.rotation = initial_ship_rot + cos(time_passed) * 0.02
 
 func _animate_buttons() -> void:
 	var buttons = buttons_node.get_children()
@@ -81,11 +93,16 @@ func _animate_buttons() -> void:
 		tween.tween_property(button, "modulate:a", 1.0, 0.5)
 		
 		tween.tween_property(button, "position:x", button.position.x + 600, 0.7).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		
 
 func _animate_ship() -> void:
-	pass
-
+	var tween = create_tween().set_parallel(true)
+	
+	tween.tween_property(sprite_ship, "position:x", sprite_ship.position.x - 700, 2.8)
+	initial_ship_y = sprite_ship.position.y
+	initial_ship_rot = sprite_ship.rotation
+	is_floating = true
+	
+	
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/world1.tscn")
 
