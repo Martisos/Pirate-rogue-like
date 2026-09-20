@@ -47,5 +47,5 @@ Inspired by games like *Vampire Survivors*, but set on the sea!
 ---
 2. Godot Project - Inside Godot
     * Download [Godot Engine (4.7)](https://godotengine.org/)
-    2. Open the project folder in Godot
-    3. Press **F5** to play!
+    * Open the project folder in Godot
+    * Press **F5** to play!
