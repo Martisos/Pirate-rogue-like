@@ -2,6 +2,9 @@ extends Area2D
 
 @export var exp_amount: int = 1
 @export var additional_exp: int = 0
+@export var sprites: Array[CompressedTexture2D] = []
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var go_to_player: bool = false
 var speed = 800
@@ -12,6 +15,8 @@ func _ready() -> void:
 	var playersGroup = get_tree().get_nodes_in_group("player")
 	if playersGroup.size() > 0:
 		player = playersGroup[0]
+	
+	sprite_2d.texture = sprites.pick_random()
 
 func set_exp_amount(number: int) -> void:
 	exp_amount = number

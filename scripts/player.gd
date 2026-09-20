@@ -108,7 +108,7 @@ func take_damage(amount: int) -> void:
 func apply_hit_flash() -> void:
 	var tween = create_tween()
 	
-	sprite.modulate = Color(15.0, 15.0, 15.0)
+	sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
 	
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
@@ -161,7 +161,7 @@ func gain_exp(amount: int):
 	print(current_exp, " ", amount)
 	while current_exp >= exp_to_new_level:
 		current_exp -= exp_to_new_level
-		exp_to_new_level = int(exp_to_new_level * 1.3)
+		exp_to_new_level = int(exp_to_new_level * 1.4)
 		level += 1
 		pending_level_ups += 1
 		print("level_ups in queue: ", pending_level_ups)

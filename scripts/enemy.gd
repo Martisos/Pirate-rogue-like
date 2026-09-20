@@ -10,8 +10,8 @@ extends CharacterBody2D
 @export var exp_amount : int = 1
 @onready var sprite: Sprite2D = $Sprite2D
 
-var explosion_sound
-var hit_sound
+var hit_sound = preload("uid://b5x26g0tjaj1v")
+var explosion_sound = preload("uid://t5g520a36qwl")
 
 var health: int
 var player = null
@@ -155,12 +155,27 @@ func take_damage(amount: int) -> void:
 func apply_hit_flash() -> void:
 	var tween = create_tween()
 	
-	sprite.modulate = Color(15.0, 15.0, 15.0)
+	sprite.modulate = Color(2.734, 2.734, 2.734, 1.0)
 	
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 
 func die():
+	
+	var sound_node = AudioStreamPlayer2D.new()
+	sound_node.bus = "SFX"
+	sound_node.stream = explosion_sound
+	sound_node.global_position = global_position
+	get_tree().current_scene.add_child(sound_node)
+	sound_node.play()
+	
+	sound_node.finished.connect(sound_node.queue_free)
+	
+	var death_tween = create_tween().set_parallel(true)
+	
+	death_tween.tween_property(sprite, "modulate", Color(0.0, 0.0, 0.0, 0.5), 1.0)
+	await death_tween.finished
+	
 	if exp_drop != null:
 		var drop = exp_drop.instantiate()
 		get_tree().current_scene.call_deferred("add_child", drop)

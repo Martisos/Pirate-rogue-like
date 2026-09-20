@@ -37,3 +37,6 @@ position = Vector2(-21, -90)
 
 [node name="Rcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="5" unique_id=71065566]
 position = Vector2(-19, 76)
+
+[node name="NavigationAgent2D" parent="." index="4" unique_id=1653678]
+radius = 100.0

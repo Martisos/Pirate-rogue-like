@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0fekelfrnbpp" path="res://scripts/owned_upgrade_card.gd" id="1_7tyom"]
 [ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball1.png" id="2_7twpb"]
+[ext_resource type="Texture2D" uid="uid://nlkhcy6eefxt" path="res://resources/sprites/progressbar_down.png" id="2_qs8nn"]
 
 [node name="ownedUpgradeCard" type="Control" unique_id=1733549988]
 layout_mode = 3
@@ -10,11 +11,19 @@ offset_right = 300.0
 offset_bottom = 100.0
 script = ExtResource("1_7tyom")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=245530470]
-custom_minimum_size = Vector2(250, 100)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1154261077]
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 100.0
+texture = ExtResource("2_qs8nn")
+expand_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=245530470]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 297.0
+offset_bottom = 96.0
 color = Color(0.12941177, 1, 1, 1)
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1769810538]

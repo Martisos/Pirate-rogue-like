@@ -42,7 +42,9 @@ func _ready() -> void:
 		paralaxCounter += 1
 		
 	if sprite_ship != null:
+		
 		sprite_ship.global_position = Vector2(1475, 402)
+		sprite_ship.show()
 	
 	if color_rect_water != null:
 		color_rect_water.position = Vector2(251, 1071)
@@ -108,6 +110,7 @@ func _on_play_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	buttons_node.hide()
+	sprite_ship.hide()
 	settings_bg.visible = true
 	settings_panel.visible = true
 
