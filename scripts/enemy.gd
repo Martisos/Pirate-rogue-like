@@ -18,6 +18,7 @@ var player = null
 var can_shoot: bool = true
 var choosen_side: String = ""
 
+var is_dead: bool = false
 var has_middle_cannon: bool = false
 
 @onready var shoot_cooldown: Timer = $ShootCooldown
@@ -138,6 +139,7 @@ func shoot() -> void:
 
 
 func take_damage(amount: int) -> void:
+	if is_dead: return
 	health -= amount
 	
 	var sound_node = AudioStreamPlayer2D.new()
@@ -146,22 +148,26 @@ func take_damage(amount: int) -> void:
 	sound_node.global_position = global_position
 	get_tree().current_scene.add_child(sound_node)
 	sound_node.play()
-	
 	sound_node.finished.connect(sound_node.queue_free)
 	
+	apply_hit_flash()
 	if health <= 0:
+		
 		die()
 
 func apply_hit_flash() -> void:
 	var tween = create_tween()
 	
-	sprite.modulate = Color(2.734, 2.734, 2.734, 1.0)
+	sprite.modulate = Color(0.547, 0.547, 0.547, 1.0)
 	
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 
 func die():
+	if is_dead: return
 	
+	can_shoot = false
+	is_dead = true
 	var sound_node = AudioStreamPlayer2D.new()
 	sound_node.bus = "SFX"
 	sound_node.stream = explosion_sound

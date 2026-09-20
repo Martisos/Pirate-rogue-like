@@ -149,9 +149,9 @@ anchors_preset = 0
 [node name="PLAY" type="Button" parent="ButtonsNode" unique_id=1020903872]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 33.0
+offset_left = 68.0
 offset_top = 222.0
-offset_right = 333.0
+offset_right = 368.0
 offset_bottom = 322.0
 text = "PLAY"
 
@@ -167,9 +167,9 @@ autoplay = &"idle"
 [node name="SETTINGS" type="Button" parent="ButtonsNode" unique_id=1905105223]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 0
-offset_left = 33.0
+offset_left = 68.0
 offset_top = 336.0
-offset_right = 333.0
+offset_right = 368.0
 offset_bottom = 436.0
 text = "SETTINGS"
 
