@@ -41,9 +41,9 @@ Inspired by games like *Vampire Survivors*, but set on the sea!
 
 ## How to run the game
 
-1. Itchio - Web
+1. Itchio - Web 
     * Open my itchio: [https://martisos.itch.io](https://martisos.itch.io)
-    * Find **PiratINK** and play it for free in browser
+    * Find **PiratINK** and play it for free in browser (it will be aviable in short  a while)
 ---
 2. Godot Project - Inside Godot
     * Download [Godot Engine (4.7)](https://godotengine.org/)
