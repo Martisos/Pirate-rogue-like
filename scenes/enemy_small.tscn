@@ -10,3 +10,6 @@ position = Vector2(-16, -44)
 
 [node name="Rcanon1" type="Marker2D" parent="Cannons" parent_id_path=PackedInt32Array(531455372) index="1" unique_id=1073628370]
 position = Vector2(-15, 40)
+
+[node name="NavigationAgent2D" parent="." index="4" unique_id=1653678]
+debug_enabled = false

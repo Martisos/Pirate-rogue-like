@@ -34,3 +34,4 @@ position = Vector2(-26, 57)
 
 [node name="NavigationAgent2D" parent="." index="4" unique_id=1653678]
 radius = 75.0
+debug_enabled = false
