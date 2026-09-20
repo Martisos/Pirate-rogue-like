@@ -6,17 +6,31 @@ extends Area2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+
+var float_timer: float = 0.0
+var base_scale: Vector2 = Vector2.ZERO
+
 var go_to_player: bool = false
 var speed = 800
 
 var player
 
 func _ready() -> void:
+
 	var playersGroup = get_tree().get_nodes_in_group("player")
 	if playersGroup.size() > 0:
 		player = playersGroup[0]
 	
-	sprite_2d.texture = sprites.pick_random()
+	if sprite_2d != null:
+		sprite_2d.texture = sprites.pick_random()
+		sprite_2d.rotation = randf_range(0.0, TAU)
+		
+		var random_scale = randf_range(0.8, 1.2)
+		base_scale = Vector2(random_scale, random_scale)
+		sprite_2d.scale = base_scale
+	
+	float_timer = randf_range(0.0, 10.0)
+
 
 func set_exp_amount(number: int) -> void:
 	exp_amount = number
@@ -29,8 +43,19 @@ func add_additional_exp_amount(number: int) -> void:
 
 func _process(delta: float) -> void:
 	if go_to_player:
-		global_position = global_position.move_toward(player.global_position, speed * delta)
-
+		if player:
+			global_position = global_position.move_toward(player.global_position, speed * delta)
+		return
+	
+	float_timer += delta * 1.5
+	
+	var scale_wave = sin(float_timer) * 0.1
+	sprite_2d.scale = base_scale + Vector2(scale_wave, scale_wave)
+	
+	var color_wave = remap(cos(float_timer), -1.0, 1.0, 0.8, 1.0)
+	sprite_2d.modulate = Color(color_wave, color_wave, color_wave, 1.0)
+	
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.has_method("gain_exp"):
