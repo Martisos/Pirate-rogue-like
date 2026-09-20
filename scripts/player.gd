@@ -20,11 +20,11 @@ var can_move: bool = true
 @onready var label_next_level: Label = $Stats/NextLevel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var exp_magnet: Area2D = $ExpMagnet
-@onready var direction: ColorRect = $"../Direction"
 @onready var camera: Camera2D = $Camera2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var stats: CanvasLayer = $Stats
 @onready var hit_sfx: AudioStreamPlayer2D = $hit_sfx
+@onready var direction: Sprite2D = $"../Direction"
 
 
 @onready var left_cannon: Marker2D = $LeftCannon

@@ -10,7 +10,7 @@ extends Node
 
 var player = null
 var counter: int = 0
-var base_cooldown: float = 5.0
+var base_cooldown: float = 6.0
 
 
 func _ready() -> void:

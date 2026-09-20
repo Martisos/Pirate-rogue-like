@@ -40,6 +40,8 @@
 [ext_resource type="Resource" uid="uid://bmbr6x00na3s6" path="res://upgrades/max_health_add_5.tres" id="32_ikmq3"]
 [ext_resource type="PackedScene" uid="uid://byev2fi5pws7b" path="res://scenes/game_over_ui.tscn" id="39_lboj7"]
 [ext_resource type="PackedScene" uid="uid://bbq67p4ttrrsu" path="res://scenes/sound_manager.tscn" id="40_ix0es"]
+[ext_resource type="Texture2D" uid="uid://bim5r1iux6l2c" path="res://resources/sprites/cross.png" id="41_oult3"]
+[ext_resource type="Shader" uid="uid://bcjp3k77khllh" path="res://shaders/cross.gdshader" id="41_t45bm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r56qy"]
 shader = ExtResource("1_eo7bd")
@@ -53,6 +55,17 @@ shader_parameter/water_tint = Color(0.5370987, 0.5370987, 0.5370987, 1)
 vertices = PackedVector2Array(11075.133, -1289.0078, 11244.859, 10966.078, -1453.0938, 11067.906, -1575.8906, -1301.9766)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-0.7213333, -0.3451111, -0.7537778, 2.498889, 2.5391111, 2.5102222, 2.5424445, -0.35311112), PackedVector2Array(-1586, -1312, -1463, 11078, 11255, 10976, 11085, -1299)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oult3"]
+shader = ExtResource("41_t45bm")
+shader_parameter/color = Color(0.8980392, 0.8980392, 0.8980392, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+shader_parameter/enable_pulsing = true
+shader_parameter/pulse_speed = 3.0000001425
+shader_parameter/min_alpha = 0.10000000475
 
 [node name="World" type="Node2D" unique_id=1181621573]
 script = ExtResource("1_jsfht")
@@ -87,13 +100,6 @@ autostart = true
 [node name="LevelUpUI" parent="." unique_id=1221979977 instance=ExtResource("5_x368c")]
 all_avaiable_upgrades = Array[ExtResource("6_ulrur")]([ExtResource("12_iow5q"), ExtResource("16_2ifxk"), ExtResource("17_r56qy"), ExtResource("15_lboj7"), ExtResource("16_ix0es"), ExtResource("17_oult3"), ExtResource("11_c2h5s"), ExtResource("19_t45bm"), ExtResource("20_eaxjv"), ExtResource("21_447er"), ExtResource("12_yeu16"), ExtResource("13_2jj1a"), ExtResource("24_kw764"), ExtResource("25_jbfi8"), ExtResource("26_a68wu"), ExtResource("27_qx5da"), ExtResource("28_jaliw"), ExtResource("29_ivkyo"), ExtResource("14_ec51p"), ExtResource("15_jsfht"), ExtResource("32_ikmq3"), ExtResource("7_mjk3i"), ExtResource("8_2ifxk"), ExtResource("9_r56qy"), ExtResource("10_eo7bd")])
 
-[node name="Direction" type="ColorRect" parent="." unique_id=2097659720]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0, 1, 0, 1)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1748879483]
 navigation_polygon = SubResource("NavigationPolygon_kb7tl")
 
@@ -106,6 +112,10 @@ exp_amount = 15
 [node name="GameOverUI" parent="." unique_id=1992218001 instance=ExtResource("39_lboj7")]
 
 [node name="SoundManager" parent="." unique_id=1638331045 instance=ExtResource("40_ix0es")]
+
+[node name="Direction" type="Sprite2D" parent="." unique_id=1970782886]
+material = SubResource("ShaderMaterial_oult3")
+texture = ExtResource("41_oult3")
 
 [connection signal="exp_changed_signal" from="Player" to="PlayerUI" method="_on_player_exp_changed_signal"]
 [connection signal="health_changed_signal" from="Player" to="PlayerUI" method="_on_player_health_changed_signal"]
