@@ -39,6 +39,14 @@ Inspired by games like *Vampire Survivors*, but set on the sea!
 ---
 
 
+## Music
+
+* Music is from the **"Infinity Crystal"** pack by **Sonatina**.
+* You can find it here: [https://sonatina.itch.io/infinity-crystal](https://sonatina.itch.io/infinity-crystal)
+
+
+---
+
 ## How to run the game
 
 1. Itchio - Web 
