@@ -1,59 +1,30 @@
 # PiratINK
 
-A survival game made for **Hack Club (Stardance)**! Sail your ship, fight enemy pirate ships, collect loot, and survive as long as you can.
+A survival game where you steer a ship, fight off enemy waves and collect loot for as long as possible.
 
-Inspired by games like *Vampire Survivors*, but set on the sea!
+![PiratINK Gameplay Sea](screens/screen_01.png)
+![PiratINK Gameplay Card](screens/screen_02.png)
 
----
+[Play it in your browser on Itch.io](https://martisos.itch.io/piratink)
 
+## Quick Start
+* **Move:** Left-click anywhere on the water to steer
+* **Shoot:** Your cannons fire automatically
+* **Upgrades:** Click to select a card when you level up
 
-## What is in the game?
+## Features
+* **Smart enemy AI:** Enemy ships use pathfinding to hunt you down while avoiding crashes with each other
+* **Card-based upgrades:** Pick from three random cards (Common, Rare, Epic, Legendary and Debuff) after each level up
+* **Polished game feel** Screen shake, hit flashes, particle trails and customizable settings
 
-* **Ship Combat:** Sail araound with mouse and shoot cannons from your sides.
-* **Smart Enemies:** Enemy ships use pathfinding to hunt you down and avoid crashing into each other.
-* **Level Up Upgrades:** Every time you level up, you can pick 1 of 3 random upgrade cards (Common, Rare, Epic, Legendary and Debuff).
-* **Cool Upgrades:** Make your ship faster, shoot faster, zoom out the camera, increase  your magnet size, slow down your enemies and more!
-* **Game Feel:** Screen shake when you get hit, flashing sprites and particles behind cannonballs.
-* **Settings:** Change the volume for music and sound effects, or turn off the screen shake and water effect if needed.
+## How it works
+The game is made in Godot 4.7 using GDScript. One of the core focuses was implementing custom physics controllers and object interaction scripts so the enemy pathfinding feels natural without ships clumping together. The camera boundary systems also dynamically adjust if the player selects an upgrade that zooms out the view. 
 
+## Credits
+* **Music:** ["Infinity Crystal" pack by Sonatina.](https://sonatina.itch.io/infinity-crystal)
+* **Event:** Made for [Hack CLub Stardance](https://stardance.hackclub.com)
 
----
-
-
-# How to play
-
-
-* **Move:** **Left-click** anywhere on the water to sail there.
-* **Shooting:** Your ship shoots automatically!
-* **Menu & Upgrades:** Use the mouse to click buttons and pick your cards.
-
-
----
-
-
-## Links
-* Play my games on Itch.io: [https://martisos.itch.io](https://martisos.itch.io)
-* Learn more about Hack Club Stardance: [https://stardance.hackclub.com](https://stardance.hackclub.com)
-
-
----
-
-
-## Music
-
-* Music is from the **"Infinity Crystal"** pack by **Sonatina**.
-* You can find it here: [https://sonatina.itch.io/infinity-crystal](https://sonatina.itch.io/infinity-crystal)
-
-
----
-
-## How to run the game
-
-1. Itchio - Web 
-    * Open my itchio: [https://martisos.itch.io](https://martisos.itch.io)
-    * Find **PiratINK** and play it for free in browser (it will be aviable in short  a while)
----
-2. Godot Project - Inside Godot
-    * Download [Godot Engine (4.7)](https://godotengine.org/)
-    * Open the project folder in Godot
-    * Press **F5** to play!
+## How to run it locally
+* Download [Godot Engine (4.7)](https://godotengine.org/)
+* Open the project folder in Godot
+* Press **F5** to play!
