@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvjdgvinm80f4" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://bebi2vmvg51f" path="res://scenes/enemy_cannonball.tscn" id="2_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://dgx4dned5csqa" path="res://resources/sprites/player-spritesheet.png" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://dgx4dned5csqa" path="res://resources/sprites/enemy/player-spritesheet.png" id="3_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
 size = Vector2(202, 75)

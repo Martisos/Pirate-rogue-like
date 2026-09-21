@@ -9,7 +9,6 @@ extends Node
 @onready var spawn_timer: Timer = $SpawnTimer
 
 var player = null
-var counter: int = 0
 var base_cooldown: float = 5.0
 
 
@@ -29,22 +28,14 @@ func _on_spawn_timer_timeout() -> void:
 	
 	var randomNumber = randi_range(0, 10)
 	
-	print(counter, ":")
 	if randomNumber >= 0 and randomNumber <=4:
 		chosen_enemy_scene = enemies[0]
-		print("mini", randomNumber)
 	elif randomNumber >= 5 and randomNumber <= 7:
 		chosen_enemy_scene = enemies[1]
-		print("small", randomNumber)
 	elif randomNumber >= 8 and randomNumber <= 9:
 		chosen_enemy_scene = enemies[2]
-		print("medium", randomNumber)
 	elif randomNumber == 10:
 		chosen_enemy_scene = enemies[3]
-		print("large", randomNumber)
-	else:
-		print("karamba", randomNumber)
-	counter += 1
 	
 	
 	if chosen_enemy_scene == null:

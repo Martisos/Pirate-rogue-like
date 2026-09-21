@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_jx2pa")
-title = "See more!"
-description = "Expand camera view by x1.50!"
+title = "Spyglass"
+description = "Expand camera view by x1.25!"
 rarity = 1
 upgrade_type = "camera_zoom"
 value = 1.25

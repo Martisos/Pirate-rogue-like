@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://bc2c03uws075m"]
 
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_6wgc1"]
+[ext_resource type="Texture2D" uid="uid://bvvvdfhliopv4" path="res://resources/sprites/icons/magnet.png" id="1_ptxsh"]
 
 [resource]
 script = ExtResource("1_6wgc1")
 title = "Higher EXP Range"
-description = "Grab EXP from further ranges! (10%)"
+description = "+10%"
+icon = ExtResource("1_ptxsh")
 upgrade_type = "magnet_size"
 value = 1.1
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

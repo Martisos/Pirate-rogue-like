@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c3c8elea3mokb"]
 
 [ext_resource type="Script" uid="uid://dfwu3hsyr66h6" path="res://scripts/cannonball.gd" id="1_77qtm"]
-[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball1.png" id="2_402uy"]
-[ext_resource type="Texture2D" uid="uid://di3m17txm2jmo" path="res://resources/sprites/cannonball2.png" id="3_xt315"]
-[ext_resource type="Texture2D" uid="uid://dwb1y0qiok2s4" path="res://resources/sprites/cannonball3.png" id="4_tk278"]
-[ext_resource type="Texture2D" uid="uid://brui706gtceet" path="res://resources/sprites/cannonball4.png" id="5_kv3gt"]
-[ext_resource type="Texture2D" uid="uid://cokl3ti35rea" path="res://resources/sprites/cannonball5.png" id="6_bv42b"]
-[ext_resource type="Texture2D" uid="uid://b03w0ksqykpye" path="res://resources/sprites/cannonball6.png" id="7_8mym2"]
+[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonballs/cannonball1.png" id="2_402uy"]
+[ext_resource type="Texture2D" uid="uid://di3m17txm2jmo" path="res://resources/sprites/cannonballs/cannonball2.png" id="3_xt315"]
+[ext_resource type="Texture2D" uid="uid://dwb1y0qiok2s4" path="res://resources/sprites/cannonballs/cannonball3.png" id="4_tk278"]
+[ext_resource type="Texture2D" uid="uid://brui706gtceet" path="res://resources/sprites/cannonballs/cannonball4.png" id="5_kv3gt"]
+[ext_resource type="Texture2D" uid="uid://cokl3ti35rea" path="res://resources/sprites/cannonballs/cannonball5.png" id="6_bv42b"]
+[ext_resource type="Texture2D" uid="uid://b03w0ksqykpye" path="res://resources/sprites/cannonballs/cannonball6.png" id="7_8mym2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 radius = 16.0

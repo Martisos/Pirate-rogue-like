@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bdtryfugykwtn"]
 
 [ext_resource type="Script" uid="uid://itr8idma8j6e" path="res://scripts/player_ui.gd" id="1_jkj6h"]
-[ext_resource type="Texture2D" uid="uid://nlkhcy6eefxt" path="res://resources/sprites/progressbar_down.png" id="2_48xfa"]
-[ext_resource type="Texture2D" uid="uid://d0lufsbg3txmd" path="res://resources/sprites/progressbar_progess.png" id="3_8isll"]
+[ext_resource type="Texture2D" uid="uid://nlkhcy6eefxt" path="res://resources/sprites/ui/progressbar_down.png" id="2_48xfa"]
+[ext_resource type="Texture2D" uid="uid://d0lufsbg3txmd" path="res://resources/sprites/ui/progressbar_progess.png" id="3_8isll"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=24496737]
 script = ExtResource("1_jkj6h")

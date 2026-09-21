@@ -104,6 +104,9 @@ func _on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 	move_and_slide()
 
 func shoot() -> void:
+	if !can_shoot:
+		return
+	
 	if cannonball_scene != null and cannons_node != null:
 		can_shoot = false
 		

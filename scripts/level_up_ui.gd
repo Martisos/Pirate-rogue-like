@@ -52,6 +52,7 @@ func show_upgrades() -> void:
 	
 	var valid_upgrades: Array[UpgradeCard] = []
 	for upgrade in all_avaiable_upgrades:
+		print(upgrade.title, "|", upgrade.description, "|", upgrade.rarity, "|", upgrade.value, "|", upgrade.value2)
 		if upgrade.upgrade_type == "heal" and player.health >= player.max_health:
 			continue
 		if upgrade.one_time_use and upgrade in PlayerUpgrades.upgrades:

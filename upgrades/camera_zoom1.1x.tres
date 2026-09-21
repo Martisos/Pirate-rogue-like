@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_arwdv")
-title = "See more!"
+title = "Spyglass"
 description = "Expand camera view by x1.1!"
 upgrade_type = "camera_zoom"
 value = 1.1

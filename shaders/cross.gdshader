@@ -2,14 +2,13 @@ shader_type canvas_item;
 
 uniform vec4 color : source_color = vec4(1.0);
 uniform float width : hint_range(0, 10) = 1.0;
-uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform int pattern : hint_range(0, 2) = 0;
 uniform bool inside = false;
-uniform bool add_margins = true; // only useful when inside is false
+uniform bool add_margins = true;
 
-// --- NOWE PARAMETRY DO PULSOWANIA ---
-uniform bool enable_pulsing = true;                    // Czy ma migać?
-uniform float pulse_speed : hint_range(0.0, 20.0) = 5.0; // Jak szybko miga
-uniform float min_alpha : hint_range(0.0, 1.0) = 0.3;    // Jak mocno przygasa (minimalna przezroczystość)
+uniform bool enable_pulsing = true;
+uniform float pulse_speed : hint_range(0.0, 20.0) = 5.0;
+uniform float min_alpha : hint_range(0.0, 1.0) = 0.3;
 
 void vertex() {
 	if (add_margins) {
@@ -62,16 +61,12 @@ void fragment() {
 	
 	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
 		
-		// --- OBLICZANIE PULSOWANIA ---
 		vec4 final_color = color;
 		if (enable_pulsing) {
-			// Fala sinus o wartościach od 0.0 do 1.0
 			float pulse = (sin(TIME * pulse_speed) + 1.0) / 2.0;
-			// Skalujemy ją do naszego zakresu (np. od min_alpha do 1.0)
 			float current_alpha = mix(min_alpha, 1.0, pulse);
 			final_color.a *= current_alpha;
 		}
-		// -----------------------------
 		
 		COLOR.rgb = inside ? mix(COLOR.rgb, final_color.rgb, final_color.a) : final_color.rgb;
 		COLOR.a += (1.0 - COLOR.a) * final_color.a;

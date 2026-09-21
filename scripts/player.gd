@@ -158,13 +158,11 @@ func _on_shoot_timer_timeout() -> void:
 
 func gain_exp(amount: int):
 	current_exp += amount
-	print(current_exp, " ", amount)
 	while current_exp >= exp_to_new_level:
 		current_exp -= exp_to_new_level
 		exp_to_new_level = int(exp_to_new_level * 1.4)
 		level += 1
 		pending_level_ups += 1
-		print("level_ups in queue: ", pending_level_ups)
 		
 	exp_changed_signal.emit(current_exp, exp_to_new_level)
 	

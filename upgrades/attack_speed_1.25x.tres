@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://brenop1adk854"]
 
+[ext_resource type="Texture2D" uid="uid://bmjdik0ottk5l" path="res://resources/sprites/icons/cannon.png" id="1_bp5ex"]
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_klhvc"]
 
 [resource]
@@ -7,6 +8,7 @@ script = ExtResource("1_klhvc")
 title = "Attack Speed 1.25x"
 description = "Shoot faster! (1.25x)"
 rarity = 1
+icon = ExtResource("1_bp5ex")
 upgrade_type = "attack_speed"
 value = 1.25
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"

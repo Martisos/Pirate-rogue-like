@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c2cc2gctbtjcr"]
 
 [ext_resource type="Script" uid="uid://cpqqk7nthjrk0" path="res://scripts/exp_drop.gd" id="1_cj8mi"]
-[ext_resource type="Texture2D" uid="uid://bnqc6hdm3r4p3" path="res://resources/sprites/exp_drop_1.png" id="2_iqqio"]
-[ext_resource type="Texture2D" uid="uid://cnf2gw8q7v7dy" path="res://resources/sprites/exp_drop_2.png" id="3_uofle"]
-[ext_resource type="Texture2D" uid="uid://canp83uwis2en" path="res://resources/sprites/exp_drop_3.png" id="4_uofle"]
+[ext_resource type="Texture2D" uid="uid://bnqc6hdm3r4p3" path="res://resources/sprites/exp_drop/exp_drop_1.png" id="2_iqqio"]
+[ext_resource type="Texture2D" uid="uid://cnf2gw8q7v7dy" path="res://resources/sprites/exp_drop/exp_drop_2.png" id="3_uofle"]
+[ext_resource type="Texture2D" uid="uid://canp83uwis2en" path="res://resources/sprites/exp_drop/exp_drop_3.png" id="4_uofle"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 radius = 20.0

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://b4issddksb8fw"]
 
-[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonball1.png" id="1_1qjyy"]
+[ext_resource type="Texture2D" uid="uid://cld2otn2uufrm" path="res://resources/sprites/cannonballs/cannonball1.png" id="1_1qjyy"]
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="2_v54ja"]
 
 [resource]
