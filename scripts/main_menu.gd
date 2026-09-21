@@ -106,7 +106,11 @@ func _animate_ship() -> void:
 	
 	
 func _on_play_pressed() -> void:
+	FadeScreen.fade_to_black()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/world1.tscn")
+	
+	FadeScreen.fade_to_game()
 
 func _on_settings_pressed() -> void:
 	buttons_node.hide()

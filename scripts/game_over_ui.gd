@@ -26,8 +26,10 @@ func show_game_over(level: int):
 
 func _on_play_again_button_pressed() -> void:
 	get_tree().paused = false
+	FadeScreen.fade_to_black()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().reload_current_scene()
-
+	FadeScreen.fade_to_game()
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false

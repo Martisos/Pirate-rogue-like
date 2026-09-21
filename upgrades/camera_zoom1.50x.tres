@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://y6ptiau0gkuv"]
 
 [ext_resource type="Script" uid="uid://cwyw5rj77w4tf" path="res://scripts/upgrade_card.gd" id="1_7wyfe"]
+[ext_resource type="Texture2D" uid="uid://dpuomr07eqnca" path="res://resources/sprites/icons/spyglass.png" id="1_d7ihn"]
 
 [resource]
 script = ExtResource("1_7wyfe")
 title = "Spyglass"
 description = "Expand camera view by x1.50!"
 rarity = 2
+icon = ExtResource("1_d7ihn")
 upgrade_type = "camera_zoom"
 value = 1.5
 metadata/_custom_type_script = "uid://cwyw5rj77w4tf"
